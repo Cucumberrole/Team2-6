@@ -43,6 +43,7 @@ public class PlayerMove : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        // "Ground"というタグが付いた地面に触れた時に、またジャンプできるようになる
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGround = true;

@@ -11,8 +11,7 @@ public class PlayerItem : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerMove player =
-            other.GetComponentInParent<PlayerMove>();
+        PlayerMove player = other.GetComponentInParent<PlayerMove>();
 
         if (player == null)
         {

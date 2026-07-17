@@ -12,13 +12,11 @@ public class PlayerMove : MonoBehaviour
     private float moveInput;
     private bool isGround;
 
-    [Header("所持アイテム")]
-    private bool hasItem;
+    [Header("アイテム能力")]
+    private bool hasItemAbility;
     private float itemMinSpeedIncrease;
     private float itemMaxSpeedIncrease;
     private float itemSpeedBoostDuration;
-
-    [Header("発動中の効果")]
     private float speedBonus;
     private bool canDoubleJump;
     private Coroutine speedBoostCoroutine;
@@ -39,20 +37,17 @@ public class PlayerMove : MonoBehaviour
             Jump();
         }
 
-        if (Input.GetMouseButtonDown(0) && hasItem)
+        // アイテム取得後、左クリックで能力を発動
+        if (Input.GetMouseButtonDown(0) && hasItemAbility)
         {
-            ActivateItem();
+            ActivateItemAbility();
         }
     }
 
     void FixedUpdate()
     {
         float currentMoveSpeed = moveSpeed + speedBonus;
-
-        rb.linearVelocity = new Vector2(
-            moveInput * currentMoveSpeed,
-            rb.linearVelocity.y
-        );
+        rb.linearVelocity = new Vector2(moveInput * currentMoveSpeed, rb.linearVelocity.y);
     }
 
     private void MoveInput()
@@ -74,72 +69,46 @@ public class PlayerMove : MonoBehaviour
     {
         if (isGround)
         {
-            rb.linearVelocity = new Vector2(
-                rb.linearVelocity.x,
-                jumpPower
-            );
-
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
             isGround = false;
             return;
         }
 
+        // 空中では2段ジャンプを1回だけ使用可能
         if (canDoubleJump)
         {
-            rb.linearVelocity = new Vector2(
-                rb.linearVelocity.x,
-                jumpPower
-            );
-
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
             canDoubleJump = false;
         }
     }
 
-    public void GetItem(
-        float minSpeedIncrease,
-        float maxSpeedIncrease,
-        float speedBoostDuration
-    )
+    // アイテムから能力の設定値を受け取る
+    public void GetItem(float minSpeedIncrease, float maxSpeedIncrease, float speedBoostDuration)
     {
-        hasItem = true;
-
+        hasItemAbility = true;
         itemMinSpeedIncrease = minSpeedIncrease;
         itemMaxSpeedIncrease = maxSpeedIncrease;
         itemSpeedBoostDuration = speedBoostDuration;
     }
 
-    private void ActivateItem()
+    private void ActivateItemAbility()
     {
-        hasItem = false;
+        float randomSpeedBonus = Random.Range(itemMinSpeedIncrease, itemMaxSpeedIncrease);
 
-        float randomSpeedBonus = Random.Range(
-            itemMinSpeedIncrease,
-            itemMaxSpeedIncrease
-        );
-
+        // 発動中に再使用した場合、効果時間を最初から数え直す
         if (speedBoostCoroutine != null)
         {
             StopCoroutine(speedBoostCoroutine);
         }
 
-        speedBoostCoroutine = StartCoroutine(
-            SpeedBoostRoutine(
-                randomSpeedBonus,
-                itemSpeedBoostDuration
-            )
-        );
-
+        speedBoostCoroutine = StartCoroutine(SpeedBoostRoutine(randomSpeedBonus, itemSpeedBoostDuration));
         canDoubleJump = true;
     }
 
-    private IEnumerator SpeedBoostRoutine(
-        float bonus,
-        float duration
-    )
+    private IEnumerator SpeedBoostRoutine(float bonus, float duration)
     {
         speedBonus = bonus;
-
         yield return new WaitForSeconds(duration);
-
         speedBonus = 0f;
         speedBoostCoroutine = null;
     }
@@ -148,6 +117,7 @@ public class PlayerMove : MonoBehaviour
     {
         foreach (ContactPoint2D contact in collision.contacts)
         {
+            // 足元からの接触だけを地面として判定
             if (contact.normal.y > 0.5f)
             {
                 return true;
@@ -159,8 +129,7 @@ public class PlayerMove : MonoBehaviour
 
     private void UpdateGroundState(Collision2D collision)
     {
-        if (rb.linearVelocity.y <= 0.1f &&
-            IsGroundContact(collision))
+        if (rb.linearVelocity.y <= 0.1f && IsGroundContact(collision))
         {
             groundColliders.Add(collision.collider);
         }

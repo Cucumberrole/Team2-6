@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    public static int EnemyHP = 5;
+    public int EnemyHP = 5;
     public static int PlayerHP = 5;
     public float speed = 2f;
 

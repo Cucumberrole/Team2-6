@@ -1,13 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float moveSpeed = 5f; // 移動速度
-    public float jumpPower = 8f; // ジャンプの強さ
+    [Header("移動設定")]
+    public float moveSpeed = 5f;
+    public float jumpPower = 8f;
 
     private Rigidbody2D rb;
     private float moveInput;
     private bool isGround;
+
+    [Header("所持アイテム")]
+    private bool hasItem;
+    private float itemMinSpeedIncrease;
+    private float itemMaxSpeedIncrease;
+    private float itemSpeedBoostDuration;
+
+    [Header("発動中の効果")]
+    private float speedBonus;
+    private bool canDoubleJump;
+    private Coroutine speedBoostCoroutine;
+
+    private readonly HashSet<Collider2D> groundColliders = new();
 
     void Start()
     {
@@ -15,6 +31,31 @@ public class PlayerMove : MonoBehaviour
     }
 
     void Update()
+    {
+        MoveInput();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
+
+        if (Input.GetMouseButtonDown(0) && hasItem)
+        {
+            ActivateItem();
+        }
+    }
+
+    void FixedUpdate()
+    {
+        float currentMoveSpeed = moveSpeed + speedBonus;
+
+        rb.linearVelocity = new Vector2(
+            moveInput * currentMoveSpeed,
+            rb.linearVelocity.y
+        );
+    }
+
+    private void MoveInput()
     {
         moveInput = 0f;
 
@@ -27,26 +68,123 @@ public class PlayerMove : MonoBehaviour
         {
             moveInput = 1f;
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGround)
+    private void Jump()
+    {
+        if (isGround)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
+            rb.linearVelocity = new Vector2(
+                rb.linearVelocity.x,
+                jumpPower
+            );
+
             isGround = false;
+            return;
+        }
+
+        if (canDoubleJump)
+        {
+            rb.linearVelocity = new Vector2(
+                rb.linearVelocity.x,
+                jumpPower
+            );
+
+            canDoubleJump = false;
         }
     }
 
-    void FixedUpdate()
+    public void GetItem(
+        float minSpeedIncrease,
+        float maxSpeedIncrease,
+        float speedBoostDuration
+    )
     {
-        // プレイヤーのRigidBody2Dに移動速度を与える
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        hasItem = true;
+
+        itemMinSpeedIncrease = minSpeedIncrease;
+        itemMaxSpeedIncrease = maxSpeedIncrease;
+        itemSpeedBoostDuration = speedBoostDuration;
+    }
+
+    private void ActivateItem()
+    {
+        hasItem = false;
+
+        float randomSpeedBonus = Random.Range(
+            itemMinSpeedIncrease,
+            itemMaxSpeedIncrease
+        );
+
+        if (speedBoostCoroutine != null)
+        {
+            StopCoroutine(speedBoostCoroutine);
+        }
+
+        speedBoostCoroutine = StartCoroutine(
+            SpeedBoostRoutine(
+                randomSpeedBonus,
+                itemSpeedBoostDuration
+            )
+        );
+
+        canDoubleJump = true;
+    }
+
+    private IEnumerator SpeedBoostRoutine(
+        float bonus,
+        float duration
+    )
+    {
+        speedBonus = bonus;
+
+        yield return new WaitForSeconds(duration);
+
+        speedBonus = 0f;
+        speedBoostCoroutine = null;
+    }
+
+    private bool IsGroundContact(Collision2D collision)
+    {
+        foreach (ContactPoint2D contact in collision.contacts)
+        {
+            if (contact.normal.y > 0.5f)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void UpdateGroundState(Collision2D collision)
+    {
+        if (rb.linearVelocity.y <= 0.1f &&
+            IsGroundContact(collision))
+        {
+            groundColliders.Add(collision.collider);
+        }
+        else
+        {
+            groundColliders.Remove(collision.collider);
+        }
+
+        isGround = groundColliders.Count > 0;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // "Ground"というタグが付いた地面に触れた時に、またジャンプできるようになる
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGround = true;
-        }
+        UpdateGroundState(collision);
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        UpdateGroundState(collision);
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        groundColliders.Remove(collision.collider);
+        isGround = groundColliders.Count > 0;
     }
 }

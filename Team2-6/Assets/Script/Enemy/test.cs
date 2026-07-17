@@ -7,7 +7,7 @@ public class test : MonoBehaviour
 
     void Update()
     {
-        hpText.text = EnemyMove.EnemyHP.ToString();
+        //hpText.text = EnemyMove.EnemyHP.ToString();
     }
 
 }

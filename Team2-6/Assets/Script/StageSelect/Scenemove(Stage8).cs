@@ -5,6 +5,6 @@ public class SceneMove8 : MonoBehaviour
 {
     public void ChangeScene()
     {
-     //   SceneManager.LoadScene("StageSelect");
+           SceneManager.LoadScene("PlayMap8");
     }
 }

@@ -5,6 +5,6 @@ public class SceneMove5 : MonoBehaviour
 {
     public void ChangeScene()
     {
-     //   SceneManager.LoadScene("StageSelect");
+        SceneManager.LoadScene("PlayMap5");
     }
 }

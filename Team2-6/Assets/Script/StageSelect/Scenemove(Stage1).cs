@@ -7,4 +7,5 @@ public class SceneMove1 : MonoBehaviour
     {
         SceneManager.LoadScene("PlayMap1");
     }
+    
 }

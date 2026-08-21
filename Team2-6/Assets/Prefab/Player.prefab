@@ -214,7 +214,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   moveSpeed: 3
+<<<<<<< HEAD
   jumpPower: 8
+=======
+  jumpPower: 9.13
+>>>>>>> Player
 --- !u!114 &6027007068935645839
 MonoBehaviour:
   m_ObjectHideFlags: 0

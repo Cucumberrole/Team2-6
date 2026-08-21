@@ -100,11 +100,14 @@ public class EnemyMove : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         // プレイヤーに当たった
         if (other.CompareTag("Player"))
         {
             Debug.Log("プレイヤーに当たった！");
-            PlayerHP -= 1;
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(1);
+            
         }
 
         // 弾に当たった

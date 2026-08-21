@@ -717,6 +717,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f90c3174e981104cb57ca2661e99cbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key
+  grantsAbility: 1
+  abilityType: 1
+  minSpeedIncrease: 1
+  maxSpeedIncrease: 2
+  speedBoostDuration: 5
 --- !u!4 &224084611 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 584044815817364418, guid: b7e88a04576829a41b2f76b8d80d3cb5, type: 3}
@@ -1850,6 +1855,10 @@ PrefabInstance:
     - target: {fileID: 959071320990244965, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3802846715637856042, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
+      propertyPath: jumpPower
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9153209811656980425, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
       propertyPath: m_Name
@@ -3345,6 +3354,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f90c3174e981104cb57ca2661e99cbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key
+  grantsAbility: 1
+  abilityType: 1
+  minSpeedIncrease: 1
+  maxSpeedIncrease: 2
+  speedBoostDuration: 5
 --- !u!4 &1303312819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 584044815817364418, guid: b7e88a04576829a41b2f76b8d80d3cb5, type: 3}
@@ -3501,6 +3515,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f90c3174e981104cb57ca2661e99cbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key
+  grantsAbility: 1
+  abilityType: 1
+  minSpeedIncrease: 1
+  maxSpeedIncrease: 2
+  speedBoostDuration: 5
 --- !u!1 &1424524072
 GameObject:
   m_ObjectHideFlags: 0
@@ -4130,6 +4149,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f90c3174e981104cb57ca2661e99cbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key
+  grantsAbility: 1
+  abilityType: 1
+  minSpeedIncrease: 1
+  maxSpeedIncrease: 2
+  speedBoostDuration: 5
 --- !u!1001 &1572314434
 PrefabInstance:
   m_ObjectHideFlags: 0

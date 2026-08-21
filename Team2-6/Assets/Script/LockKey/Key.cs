@@ -18,20 +18,45 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
+    [Header("能力を付与するか")]
+    public bool grantsAbility;
+
+    [Header("付与する能力")]
+    public PlayerAbilityType abilityType = PlayerAbilityType.None;
+
+    [Header("速度上昇能力用")]
+    public float minSpeedIncrease = 1f;
+    public float maxSpeedIncrease = 2f;
+    public float speedBoostDuration = 5f;
+
     private bool collected;
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (collected)
+        if (collected || !other.CompareTag("Player"))
         {
             return;
         }
 
-        if (other.CompareTag("Player"))
+        collected = true;
+        KeyManager.Instance.CollectKey();
+
+        // 能力付きの鍵ならPlayerに能力を付与
+        if (grantsAbility)
         {
-            collected = true;
-            KeyManager.Instance.CollectKey();
-            Destroy(gameObject);
+            PlayerAbility playerAbility = other.GetComponentInParent<PlayerAbility>();
+
+            if (playerAbility != null)
+            {
+                playerAbility.AcquireAbility(
+                    abilityType,
+                    minSpeedIncrease,
+                    maxSpeedIncrease,
+                    speedBoostDuration
+                );
+            }
         }
+
+        Destroy(gameObject);
     }
 }

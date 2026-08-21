@@ -2,19 +2,45 @@ using UnityEngine;
 
 public class LockedObject : MonoBehaviour
 {
-    private Collider2D col;
+    public Collider2D keyCollider;
+    public GameObject lockVisual;
+
+    private bool isUnlocked;
 
     void Start()
     {
-        col = GetComponent<Collider2D>();
+        if (keyCollider == null)
+        {
+            keyCollider = GetComponent<Collider2D>();
+        }
+
+        // 最初は鍵を取得できない
+        if (keyCollider != null)
+        {
+            keyCollider.enabled = false;
+        }
     }
 
     void Update()
     {
-        // 鍵を取ったらオブジェクトを消す
-        if (Key.hasKey)
+        if (!isUnlocked && KeyManager.Instance.LockedKeysUnlocked)
         {
-            Destroy(gameObject);
+            Unlock();
+        }
+    }
+
+    private void Unlock()
+    {
+        isUnlocked = true;
+
+        if (keyCollider != null)
+        {
+            keyCollider.enabled = true;
+        }
+
+        if (lockVisual != null)
+        {
+            lockVisual.SetActive(false);
         }
     }
 }

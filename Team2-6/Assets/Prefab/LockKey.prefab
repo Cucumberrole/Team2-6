@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6087049036268476688}
   - component: {fileID: 1520316349399655662}
   - component: {fileID: 2925104935668277610}
-  - component: {fileID: 3568952110165032386}
+  - component: {fileID: 431109098463648655}
   m_Layer: 0
   m_Name: LockKey
   m_TagString: Untagged
@@ -139,7 +139,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.8828125}
   m_EdgeRadius: 0
---- !u!114 &3568952110165032386
+--- !u!114 &431109098463648655
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,6 +148,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6857701905754370621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f90c3174e981104cb57ca2661e99cbc, type: 3}
+  m_Script: {fileID: 11500000, guid: a669a3535ff293849af96b57692e8e33, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Key
+  m_EditorClassIdentifier: Assembly-CSharp::UnlockItem

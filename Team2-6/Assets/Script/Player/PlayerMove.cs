@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [Header("ˆÚ“®İ’è")]
+    [Header("ç§»å‹•è¨­å®š")]
     public float moveSpeed = 3f;
     public float jumpPower = 5.6f;
 
     private Rigidbody2D rb;
     private float moveInput;
     private bool isGround;
-
-    [Header("ƒAƒCƒeƒ€”\—Í")]
-    private bool hasItemAbility;
-    private float itemMinSpeedIncrease;
-    private float itemMaxSpeedIncrease;
-    private float itemSpeedBoostDuration;
     private float speedBonus;
     private bool canDoubleJump;
     private Coroutine speedBoostCoroutine;
-
+    private int facingDirection = 1;
     private readonly HashSet<Collider2D> groundColliders = new();
+
+    public int FacingDirection => facingDirection;
 
     void Start()
     {
@@ -35,12 +31,6 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
-        }
-
-        // ƒAƒCƒeƒ€æ“¾ŒãA¶ƒNƒŠƒbƒN‚Å”\—Í‚ğ”­“®
-        if (Input.GetMouseButtonDown(0) && hasItemAbility)
-        {
-            ActivateItemAbility();
         }
     }
 
@@ -57,11 +47,13 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             moveInput = -1f;
+            facingDirection = -1;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             moveInput = 1f;
+            facingDirection = 1;
         }
     }
 
@@ -74,7 +66,6 @@ public class PlayerMove : MonoBehaviour
             return;
         }
 
-        // ‹ó’†‚Å‚Í2’iƒWƒƒƒ“ƒv‚ğ1‰ñ‚¾‚¯g—p‰Â”\
         if (canDoubleJump)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
@@ -82,26 +73,17 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    // ƒAƒCƒeƒ€‚©‚ç”\—Í‚Ìİ’è’l‚ğó‚¯æ‚é
-    public void GetItem(float minSpeedIncrease, float maxSpeedIncrease, float speedBoostDuration)
+    // é€Ÿåº¦ä¸Šæ˜‡ã¨2æ®µã‚¸ãƒ£ãƒ³ãƒ—ã‚’ç™ºå‹•
+    public void ActivateSpeedDoubleJump(float minSpeedIncrease, float maxSpeedIncrease, float duration)
     {
-        hasItemAbility = true;
-        itemMinSpeedIncrease = minSpeedIncrease;
-        itemMaxSpeedIncrease = maxSpeedIncrease;
-        itemSpeedBoostDuration = speedBoostDuration;
-    }
+        float randomSpeedBonus = Random.Range(minSpeedIncrease, maxSpeedIncrease);
 
-    private void ActivateItemAbility()
-    {
-        float randomSpeedBonus = Random.Range(itemMinSpeedIncrease, itemMaxSpeedIncrease);
-
-        // ”­“®’†‚ÉÄg—p‚µ‚½ê‡AŒø‰ÊŠÔ‚ğÅ‰‚©‚ç”‚¦’¼‚·
         if (speedBoostCoroutine != null)
         {
             StopCoroutine(speedBoostCoroutine);
         }
 
-        speedBoostCoroutine = StartCoroutine(SpeedBoostRoutine(randomSpeedBonus, itemSpeedBoostDuration));
+        speedBoostCoroutine = StartCoroutine(SpeedBoostRoutine(randomSpeedBonus, duration));
         canDoubleJump = true;
     }
 
@@ -117,7 +99,6 @@ public class PlayerMove : MonoBehaviour
     {
         foreach (ContactPoint2D contact in collision.contacts)
         {
-            // ‘«Œ³‚©‚ç‚ÌÚG‚¾‚¯‚ğ’n–Ê‚Æ‚µ‚Ä”»’è
             if (contact.normal.y > 0.5f)
             {
                 return true;

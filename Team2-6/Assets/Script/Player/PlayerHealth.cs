@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -19,7 +20,17 @@ public class PlayerHealth : MonoBehaviour
         currentHp = maxHp;
         SetBarrierVisual(false);
     }
-
+    void Update()
+    {
+        if (transform.position.y <= -10f)
+        {
+            Die();
+        }
+    }
+    public int CurrentHp
+    {
+        get { return currentHp; }
+    }
     public void TakeDamage(int damage)
     {
         if (isInvincible)
@@ -97,5 +108,6 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Playerが倒れました");
+        SceneManager.LoadScene("GameOver");
     }
 }

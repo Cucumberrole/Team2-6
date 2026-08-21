@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4841494970573554785}
   - component: {fileID: 8674199898938863104}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.59, y: -1.27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2552024533788912713}
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 4140500881365034683, guid: 5d4dd3f3c062b0346824cd8fc3b35bf4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,10 +106,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0ce12f6f476aa41b3bccefd239da46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
+  EnemyHP: 5
   speed: 1
   groundCheck: {fileID: 2552024533788912713}
   checkDistance: 0.2
   ground: {fileID: 0}
+  spriteRenderer: {fileID: 556247137742505858}
+  left: {fileID: 6668313070653741168, guid: 8cfd944acaa2bc04596c29973df56600, type: 3}
+  right: {fileID: 4140500881365034683, guid: 5d4dd3f3c062b0346824cd8fc3b35bf4, type: 3}
+  groundCheckX: 3
 --- !u!58 &8674199898938863104
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -145,7 +150,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.21133333}
-  m_Radius: 0.5
+  m_Radius: 4
 --- !u!1 &7357219998968007605
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +176,7 @@ Transform:
   m_GameObject: {fileID: 7357219998968007605}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -0.99, z: 0}
+  m_LocalPosition: {x: 3.2, y: -6.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

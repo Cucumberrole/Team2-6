@@ -1,22 +1,44 @@
 using UnityEngine;
 
-public class GoalTrigger : MonoBehaviour
+public class Goal : MonoBehaviour
 {
-    private bool isGoal = false;
+    public GameObject goalLockObject;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private bool isOpen;
+    private bool isGoal;
+
+    void Update()
     {
-        // すでにゴール済みなら処理しない
-        if (isGoal) return;
+        // 鍵をすべて取得したらゴールを開く
+        if (!isOpen && KeyManager.Instance.HasAllKeys)
+        {
+            OpenGoal();
+        }
+    }
 
-        // プレイヤーに触れたらゴール
-        if (collision.CompareTag("Player"))
+    private void OpenGoal()
+    {
+        isOpen = true;
+
+        if (goalLockObject != null)
+        {
+            goalLockObject.SetActive(false);
+        }
+
+        Debug.Log("ゴールが開きました！");
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!isOpen || isGoal)
+        {
+            return;
+        }
+
+        if (other.CompareTag("Player"))
         {
             isGoal = true;
             Debug.Log("ゴール！");
-
-            // ここにゴール後の処理を書く
-            // 例：シーン切り替え、UI表示、プレイヤー停止など
         }
     }
 }

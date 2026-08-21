@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class LaserDamage : MonoBehaviour
 {
-    public int damage = 1; // ƒvƒŒƒCƒ„[‚É—^‚¦‚éƒ_ƒ[ƒW—Ê
+    public int damage = 1; // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«ä¸ãˆã‚‹ãƒ€ãƒ¡ãƒ¼ã‚¸é‡
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // ÚG‚µ‚½ƒIƒuƒWƒFƒNƒg‚©‚çPlayerHealth‚ğæ“¾‚·‚é
         PlayerHealth playerHealth = other.GetComponentInParent<PlayerHealth>();
 
-        // PlayerHealth‚ªŒ©‚Â‚©‚Á‚½ê‡Aƒ_ƒ[ƒW‚ğ—^‚¦‚é
         if (playerHealth != null)
         {
             playerHealth.TakeDamage(damage);

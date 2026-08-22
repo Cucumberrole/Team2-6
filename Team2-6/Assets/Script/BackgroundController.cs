@@ -18,7 +18,7 @@ public class BackgroundController : MonoBehaviour
         StartCoroutine(RestoreColorRoutine());
     }
 
-    private IEnumerator RestoreColorRoutine()
+    public IEnumerator RestoreColorRoutine()
     {
         float time = 0f;
 
@@ -32,5 +32,10 @@ public class BackgroundController : MonoBehaviour
 
             yield return null;
         }
+
+        // ç≈å„ÇÕäÆëSÇ…ï\é¶
+        Color finalColor = colorBackground.color;
+        finalColor.a = 1f;
+        colorBackground.color = finalColor;
     }
 }

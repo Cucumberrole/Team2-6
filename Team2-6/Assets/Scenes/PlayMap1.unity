@@ -1860,6 +1860,14 @@ PrefabInstance:
       propertyPath: jumpPower
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8494383419999585107, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494383419999585107, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.038
+      objectReference: {fileID: 0}
     - target: {fileID: 9153209811656980425, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2574,7 +2582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::test1
   hpText: {fileID: 998227443}
-  playerHealth: {fileID: 1136837530}
+  playerHealth: {fileID: 0}
 --- !u!114 &998227443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2754,17 +2762,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1136837530 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6027007068935645839, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
-  m_PrefabInstance: {fileID: 689533170}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9804187cfb662c479f83ecc76797bba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
 --- !u!1 &1180831333
 GameObject:
   m_ObjectHideFlags: 0

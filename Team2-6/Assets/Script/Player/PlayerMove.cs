@@ -18,6 +18,8 @@ public class PlayerMove : MonoBehaviour
     private readonly HashSet<Collider2D> groundColliders = new();
 
     public int FacingDirection => facingDirection;
+    public bool IsGround => isGround;
+    public float HorizontalInput => moveInput;
 
     void Start()
     {

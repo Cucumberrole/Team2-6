@@ -853,6 +853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379db222a5f0b374bba6f6bb7743be04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerItem
+  abilityType: 0
   minSpeedIncrease: 1
   maxSpeedIncrease: 2
   speedBoostDuration: 5
@@ -1013,6 +1014,18 @@ PrefabInstance:
     - target: {fileID: 959071320990244965, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494383419999585107, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494383419999585107, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494383419999585107, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9153209811656980425, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
       propertyPath: m_Name

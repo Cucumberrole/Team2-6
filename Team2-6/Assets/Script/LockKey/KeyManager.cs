@@ -8,9 +8,7 @@ public class KeyManager : MonoBehaviour
     public int totalKeys = 4;
 
     private int collectedKeys;
-    private bool lockedKeysUnlocked;
 
-    public bool LockedKeysUnlocked => lockedKeysUnlocked;
     public bool HasAllKeys => collectedKeys >= totalKeys;
 
     void Awake()
@@ -18,7 +16,6 @@ public class KeyManager : MonoBehaviour
         Instance = this;
     }
 
-    // 紫の鍵を取得
     public void CollectKey()
     {
         collectedKeys++;
@@ -28,12 +25,5 @@ public class KeyManager : MonoBehaviour
         {
             Debug.Log("すべての鍵を取得しました！");
         }
-    }
-
-    // 青いアイテムを取得
-    public void UnlockLockedKeys()
-    {
-        lockedKeysUnlocked = true;
-        Debug.Log("ロックされた鍵が解除されました！");
     }
 }

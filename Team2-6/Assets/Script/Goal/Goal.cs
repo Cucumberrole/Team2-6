@@ -7,6 +7,8 @@ public class Goal : MonoBehaviour
     private bool isOpen;
     private bool isGoal;
 
+    public BackgroundController backgroundController;
+
     void Update()
     {
         // 鍵をすべて取得したらゴールを開く
@@ -39,6 +41,8 @@ public class Goal : MonoBehaviour
         {
             isGoal = true;
             Debug.Log("ゴール！");
+
+            backgroundController.RestoreColor();
         }
     }
 }

@@ -3,44 +3,29 @@ using UnityEngine;
 public class LockedObject : MonoBehaviour
 {
     public Collider2D keyCollider;
-    public GameObject lockVisual;
-
-    private bool isUnlocked;
+    public GameObject lockObject;
 
     void Start()
     {
-        if (keyCollider == null)
-        {
-            keyCollider = GetComponent<Collider2D>();
-        }
-
-        // Å‰‚ÍŒ®‚ğæ“¾‚Å‚«‚È‚¢
+        // Å‰‚Í‡‚ÌŒ®‚ğæ“¾‚Å‚«‚È‚¢
         if (keyCollider != null)
         {
             keyCollider.enabled = false;
         }
     }
 
-    void Update()
+    public void Unlock()
     {
-        if (!isUnlocked && KeyManager.Instance.LockedKeysUnlocked)
-        {
-            Unlock();
-        }
-    }
-
-    private void Unlock()
-    {
-        isUnlocked = true;
-
+        // ‡‚ÌŒ®‚ğæ“¾‰Â”\‚É‚·‚é
         if (keyCollider != null)
         {
             keyCollider.enabled = true;
         }
 
-        if (lockVisual != null)
+        // ƒƒbƒN‚µ‚Ä‚¢‚é” ‚ğÁ‚·
+        if (lockObject != null)
         {
-            lockVisual.SetActive(false);
+            Destroy(lockObject);
         }
     }
 }

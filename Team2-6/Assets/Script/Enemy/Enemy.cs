@@ -3,7 +3,6 @@ using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     public int EnemyHP = 5;
-    public static int PlayerHP = 5;
 
     public float speed = 2f;
 
@@ -107,7 +106,7 @@ public class EnemyMove : MonoBehaviour
             Debug.Log("プレイヤーに当たった！");
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
             playerHealth.TakeDamage(1);
-            
+
         }
 
         // 弾に当たった

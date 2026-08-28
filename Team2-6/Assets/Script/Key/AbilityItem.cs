@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PlayerItem : MonoBehaviour
+public class AbilityItem : MonoBehaviour
 {
-    [Header("å–å¾—ã§ãã‚‹èƒ½åŠ›")]
+    [Header("æ“¾‚Å‚«‚é”\—Í")]
     public PlayerAbilityType abilityType;
 
     private bool collected;

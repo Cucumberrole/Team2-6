@@ -6,15 +6,17 @@ public class HomingBullet : MonoBehaviour
     public float lifeTime = 5f;
     public int damage = 1;
 
-    private EnemyHealth target;
+    private EnemyMove target;
+    private Rigidbody2D rb;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         target = FindClosestEnemy();
         Destroy(gameObject, lifeTime);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (target == null)
         {
@@ -22,16 +24,17 @@ public class HomingBullet : MonoBehaviour
             return;
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        Vector2 direction = (target.transform.position - transform.position).normalized;
+        rb.linearVelocity = direction * speed;
     }
 
-    private EnemyHealth FindClosestEnemy()
+    private EnemyMove FindClosestEnemy()
     {
-        EnemyHealth[] enemies = FindObjectsByType<EnemyHealth>(FindObjectsSortMode.None);
-        EnemyHealth closest = null;
+        EnemyMove[] enemies = FindObjectsByType<EnemyMove>(FindObjectsSortMode.None);
+        EnemyMove closest = null;
         float closestDistance = Mathf.Infinity;
 
-        foreach (EnemyHealth enemy in enemies)
+        foreach (EnemyMove enemy in enemies)
         {
             float distance = Vector2.Distance(transform.position, enemy.transform.position);
 
@@ -47,7 +50,7 @@ public class HomingBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        EnemyHealth enemy = other.GetComponentInParent<EnemyHealth>();
+        EnemyMove enemy = other.GetComponentInParent<EnemyMove>();
 
         if (enemy != null)
         {

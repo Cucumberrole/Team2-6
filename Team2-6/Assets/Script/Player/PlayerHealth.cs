@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -13,24 +12,18 @@ public class PlayerHealth : MonoBehaviour
     private int currentHp;
     private bool isInvincible;
     private bool hasBarrier;
+
+    private Coroutine invincibleCoroutine;
     private Coroutine barrierCoroutine;
+
+    public int CurrentHp => currentHp;
 
     void Start()
     {
         currentHp = maxHp;
         SetBarrierVisual(false);
     }
-    void Update()
-    {
-        if (transform.position.y <= -10f)
-        {
-            Die();
-        }
-    }
-    public int CurrentHp
-    {
-        get { return currentHp; }
-    }
+
     public void TakeDamage(int damage)
     {
         if (isInvincible)
@@ -38,7 +31,6 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
 
-        // バリアがある場合はHPの代わりにバリアを消費
         if (hasBarrier)
         {
             RemoveBarrier();
@@ -54,12 +46,24 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void SetInvincible(bool value)
+    public void ActivateInvincible(float duration)
     {
-        isInvincible = value;
+        if (invincibleCoroutine != null)
+        {
+            StopCoroutine(invincibleCoroutine);
+        }
+
+        invincibleCoroutine = StartCoroutine(InvincibleRoutine(duration));
     }
 
-    // durationが0以下なら攻撃を受けるまで継続
+    private IEnumerator InvincibleRoutine(float duration)
+    {
+        isInvincible = true;
+        yield return new WaitForSeconds(duration);
+        isInvincible = false;
+        invincibleCoroutine = null;
+    }
+
     public void ActivateBarrier(float duration)
     {
         if (barrierCoroutine != null)
@@ -80,6 +84,7 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator BarrierRoutine(float duration)
     {
         yield return new WaitForSeconds(duration);
+
         barrierCoroutine = null;
         hasBarrier = false;
         SetBarrierVisual(false);
@@ -108,6 +113,5 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Playerが倒れました");
-        SceneManager.LoadScene("GameOver");
     }
 }

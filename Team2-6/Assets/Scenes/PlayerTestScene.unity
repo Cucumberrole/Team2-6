@@ -362,6 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d5cf4cfe3c9c742a6df554098db674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaserDamage
+  damage: 1
 --- !u!61 &554295631
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -556,9 +557,11 @@ GameObject:
   m_Component:
   - component: {fileID: 742889450}
   - component: {fileID: 742889449}
+  - component: {fileID: 742889453}
+  - component: {fileID: 742889452}
   - component: {fileID: 742889451}
   m_Layer: 0
-  m_Name: Item
+  m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -638,8 +641,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &742889451
-BoxCollider2D:
+--- !u!114 &742889451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742889448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d63dfc60682fe439600ea4ab5c490e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerItem
+  abilityType: 2
+--- !u!50 &742889452
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742889448}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &742889453
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -673,17 +716,7 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0.25, y: 0.25, z: 0.25, w: 0.25}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 2
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!1 &976228699
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,6 +1023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379db222a5f0b374bba6f6bb7743be04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerItem
+  abilityType: 0
 --- !u!212 &2122829020
 SpriteRenderer:
   serializedVersion: 2

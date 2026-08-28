@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,9 +11,10 @@ public class PlayerMove : MonoBehaviour
     private float moveInput;
     private bool isGround;
     private float speedBonus;
-    private bool canDoubleJump;
-    private Coroutine speedBoostCoroutine;
+    private bool doubleJumpEnabled;
+    private bool doubleJumpUsed;
     private int facingDirection = 1;
+
     private readonly HashSet<Collider2D> groundColliders = new();
 
     public int FacingDirection => facingDirection;
@@ -65,36 +65,23 @@ public class PlayerMove : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
             isGround = false;
+            doubleJumpUsed = false;
             return;
         }
 
-        if (canDoubleJump)
+        // 1面能力取得後は空中でもう1回ジャンプ可能
+        if (doubleJumpEnabled && !doubleJumpUsed)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
-            canDoubleJump = false;
+            doubleJumpUsed = true;
         }
     }
 
-    // 速度上昇と2段ジャンプを発動
-    public void ActivateSpeedDoubleJump(float minSpeedIncrease, float maxSpeedIncrease, float duration)
+    // 1面能力
+    public void ActivateSpeedDoubleJump(float minSpeedIncrease, float maxSpeedIncrease)
     {
-        float randomSpeedBonus = Random.Range(minSpeedIncrease, maxSpeedIncrease);
-
-        if (speedBoostCoroutine != null)
-        {
-            StopCoroutine(speedBoostCoroutine);
-        }
-
-        speedBoostCoroutine = StartCoroutine(SpeedBoostRoutine(randomSpeedBonus, duration));
-        canDoubleJump = true;
-    }
-
-    private IEnumerator SpeedBoostRoutine(float bonus, float duration)
-    {
-        speedBonus = bonus;
-        yield return new WaitForSeconds(duration);
-        speedBonus = 0f;
-        speedBoostCoroutine = null;
+        speedBonus = Random.Range(minSpeedIncrease, maxSpeedIncrease);
+        doubleJumpEnabled = true;
     }
 
     private bool IsGroundContact(Collision2D collision)
@@ -122,6 +109,11 @@ public class PlayerMove : MonoBehaviour
         }
 
         isGround = groundColliders.Count > 0;
+
+        if (isGround)
+        {
+            doubleJumpUsed = false;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)

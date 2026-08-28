@@ -541,6 +541,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 1898389561}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!1 &176317713
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,11 +708,11 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189722924}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalPosition: {x: 0, y: 0, z: 90.000275}
   m_LocalScale: {x: 2, y: 9, z: 0.009259259}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1023463684}
+  m_Father: {fileID: 475406370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -731,6 +733,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShowHide
   show: {fileID: 569814744}
   show1: {fileID: 1771597114}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!114 &189722927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -879,6 +883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HIde
   hide: {fileID: 569814744}
   hide1: {fileID: 1518956857}
+  canvasGroup: {fileID: 475406372}
 --- !u!114 &206468690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,7 +905,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1142,7 +1147,7 @@ RectTransform:
   m_LocalScale: {x: 2, y: 9, z: 0.009259259}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1023463684}
+  m_Father: {fileID: 475406370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1163,6 +1168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShowHide
   show: {fileID: 569814744}
   show1: {fileID: 1771597114}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!114 &238377285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1405,6 +1412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 672181400}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!1 &267958216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,6 +2064,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 932336916}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!1 &378942738
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,7 +2139,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2503,15 +2514,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461086077}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalPosition: {x: 0, y: 0, z: 90.000275}
   m_LocalScale: {x: 2, y: 9, z: 0.009259259}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1023463684}
+  m_Father: {fileID: 475406370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 171, y: -303}
+  m_AnchoredPosition: {x: 171, y: -302.99954}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &461086079
@@ -2528,6 +2539,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShowHide
   show: {fileID: 569814744}
   show1: {fileID: 1771597114}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!114 &461086080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2813,6 +2826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HIde
   hide: {fileID: 569814744}
   hide1: {fileID: 780988495}
+  canvasGroup: {fileID: 475406372}
 --- !u!114 &463829692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2834,7 +2848,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2920,6 +2934,8 @@ GameObject:
   - component: {fileID: 475406368}
   - component: {fileID: 475406367}
   - component: {fileID: 475406371}
+  - component: {fileID: 475406373}
+  - component: {fileID: 475406372}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2988,7 +3004,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &475406370
 RectTransform:
@@ -3004,22 +3020,27 @@ RectTransform:
   m_Children:
   - {fileID: 175345669}
   - {fileID: 1489060380}
+  - {fileID: 238377283}
   - {fileID: 1337897695}
   - {fileID: 1268553465}
+  - {fileID: 1905142135}
   - {fileID: 1716628835}
   - {fileID: 352413618}
+  - {fileID: 920242854}
   - {fileID: 1748474667}
   - {fileID: 629024446}
+  - {fileID: 1247974741}
   - {fileID: 816784097}
   - {fileID: 589797224}
+  - {fileID: 1901187760}
   - {fileID: 1024608698}
   - {fileID: 1537101104}
+  - {fileID: 461086078}
   - {fileID: 907552261}
   - {fileID: 2057912644}
+  - {fileID: 189722925}
   - {fileID: 607512734}
   - {fileID: 262457632}
-  - {fileID: 1104139485}
-  - {fileID: 772370289}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3039,37 +3060,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1c6631804de1343a71ff3a7d152616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageClear
-  Map1Clear: 0
   NotClear1: {fileID: 175345668}
   Clear1: {fileID: 1489060375}
-  Map2Clear: 0
+  Map2: {fileID: 1337897694}
   NotClear2: {fileID: 1337897694}
   Clear2: {fileID: 1268553460}
   HibeMap2: {fileID: 238377282}
-  Map3Clear: 0
+  Map3: {fileID: 1716628834}
   NotClear3: {fileID: 1716628834}
   Clear3: {fileID: 352413613}
   HibeMap3: {fileID: 1905142134}
-  Map4Clear: 0
+  Map4: {fileID: 1748474666}
   NotClear4: {fileID: 1748474666}
   Clear4: {fileID: 629024441}
   HibeMap4: {fileID: 920242853}
-  Map5Clear: 0
+  Map5: {fileID: 816784096}
   NotClear5: {fileID: 816784096}
   Clear5: {fileID: 589797219}
   HibeMap5: {fileID: 1247974740}
-  Map6Clear: 0
+  Map6: {fileID: 1024608697}
   NotClear6: {fileID: 1024608697}
   Clear6: {fileID: 1537101099}
   HibeMap6: {fileID: 1901187759}
-  Map7Clear: 0
+  Map7: {fileID: 907552260}
   NotClear7: {fileID: 907552260}
   Clear7: {fileID: 2057912639}
   HibeMap7: {fileID: 461086077}
-  Map8Clear: 0
+  Map8: {fileID: 607512733}
   NotClear8: {fileID: 607512733}
   Clear8: {fileID: 262457627}
   HibeMap8: {fileID: 189722924}
+--- !u!225 &475406372
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475406366}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &475406373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475406366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f0a26a6d8c85640b32ead0ea1d5d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeepKeyboardSelection
+  firstButton: {fileID: 175345671}
 --- !u!1 &499863539
 GameObject:
   m_ObjectHideFlags: 0
@@ -3079,6 +3124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 499863540}
+  - component: {fileID: 499863541}
   m_Layer: 0
   m_Name: Stage7
   m_TagString: Untagged
@@ -3104,6 +3150,19 @@ Transform:
   - {fileID: 2125171445}
   m_Father: {fileID: 569814745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &499863541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499863539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f0a26a6d8c85640b32ead0ea1d5d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
+  firstButton: {fileID: 378942741}
 --- !u!1 &508305805
 GameObject:
   m_ObjectHideFlags: 0
@@ -3854,6 +3913,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 780988495}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!1 &607512733
 GameObject:
   m_ObjectHideFlags: 0
@@ -3873,7 +3934,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &607512734
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4002,6 +4063,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 672181400}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!1 &629024441
 GameObject:
   m_ObjectHideFlags: 0
@@ -4150,6 +4213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 1518956857}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!1 &629835721
 GameObject:
   m_ObjectHideFlags: 0
@@ -4299,6 +4364,7 @@ GameObject:
   - component: {fileID: 643894725}
   - component: {fileID: 643894724}
   - component: {fileID: 643894723}
+  - component: {fileID: 643894727}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4389,6 +4455,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &643894727
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643894722}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &672181400
 GameObject:
   m_ObjectHideFlags: 0
@@ -4398,6 +4476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 672181401}
+  - component: {fileID: 672181402}
   m_Layer: 0
   m_Name: Stage8
   m_TagString: Untagged
@@ -4423,6 +4502,19 @@ Transform:
   - {fileID: 1307582262}
   m_Father: {fileID: 569814745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &672181402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672181400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f0a26a6d8c85640b32ead0ea1d5d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
+  firstButton: {fileID: 1193569216}
 --- !u!1 &722291788
 GameObject:
   m_ObjectHideFlags: 0
@@ -4477,6 +4569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HIde
   hide: {fileID: 569814744}
   hide1: {fileID: 1437790252}
+  canvasGroup: {fileID: 475406372}
 --- !u!114 &722291791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4498,7 +4591,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -4644,7 +4737,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -4753,7 +4846,7 @@ Transform:
   - {fileID: 790031693}
   - {fileID: 2027806808}
   - {fileID: 1512370331}
-  m_Father: {fileID: 475406370}
+  m_Father: {fileID: 1023463684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &780988495
 GameObject:
@@ -4764,6 +4857,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 780988496}
+  - component: {fileID: 780988497}
   m_Layer: 0
   m_Name: Stage5
   m_TagString: Untagged
@@ -4789,6 +4883,19 @@ Transform:
   - {fileID: 463829690}
   m_Father: {fileID: 569814745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &780988497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780988495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f0a26a6d8c85640b32ead0ea1d5d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
+  firstButton: {fileID: 921495392}
 --- !u!1 &790031692
 GameObject:
   m_ObjectHideFlags: 0
@@ -5078,7 +5185,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5165,6 +5272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HIde
   hide: {fileID: 569814744}
   hide1: {fileID: 1898389561}
+  canvasGroup: {fileID: 475406372}
 --- !u!1 &805186767
 GameObject:
   m_ObjectHideFlags: 0
@@ -5219,6 +5327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HIde
   hide: {fileID: 569814744}
   hide1: {fileID: 932336916}
+  canvasGroup: {fileID: 475406372}
 --- !u!114 &805186770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5240,7 +5349,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5332,7 +5441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &816784097
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5461,6 +5570,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 780988495}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!1 &867998498
 GameObject:
   m_ObjectHideFlags: 0
@@ -5643,7 +5754,7 @@ MonoBehaviour:
   m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
@@ -5696,7 +5807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &907552261
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5825,6 +5936,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 499863539}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!1 &920242853
 GameObject:
   m_ObjectHideFlags: 0
@@ -5853,11 +5966,11 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920242853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalPosition: {x: 0, y: 0, z: 90.000275}
   m_LocalScale: {x: 2, y: 9, z: 0.009259259}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1023463684}
+  m_Father: {fileID: 475406370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5878,6 +5991,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShowHide
   show: {fileID: 569814744}
   show1: {fileID: 1771597114}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!114 &920242856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6182,7 +6297,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -6264,6 +6379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 932336917}
+  - component: {fileID: 932336918}
   m_Layer: 0
   m_Name: Stage3
   m_TagString: Untagged
@@ -6289,6 +6405,19 @@ Transform:
   - {fileID: 805186768}
   m_Father: {fileID: 569814745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &932336918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932336916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f0a26a6d8c85640b32ead0ea1d5d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
+  firstButton: {fileID: 1336598644}
 --- !u!1 &935890928
 GameObject:
   m_ObjectHideFlags: 0
@@ -6681,7 +6810,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -6971,7 +7100,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1023463684
 RectTransform:
@@ -6985,13 +7114,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 238377283}
-  - {fileID: 1905142135}
-  - {fileID: 920242854}
-  - {fileID: 1247974741}
-  - {fileID: 1901187760}
-  - {fileID: 461086078}
-  - {fileID: 189722925}
+  - {fileID: 1104139485}
+  - {fileID: 772370289}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7018,7 +7142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1024608698
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7147,6 +7271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 1199102882}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!1 &1035906032
 GameObject:
   m_ObjectHideFlags: 0
@@ -7451,7 +7577,7 @@ RectTransform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 475406370}
+  m_Father: {fileID: 1023463684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7768,7 +7894,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -7914,7 +8040,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -8133,6 +8259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1199102883}
+  - component: {fileID: 1199102884}
   m_Layer: 0
   m_Name: Stage6
   m_TagString: Untagged
@@ -8158,6 +8285,19 @@ Transform:
   - {fileID: 2022413779}
   m_Father: {fileID: 569814745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1199102884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199102882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f0a26a6d8c85640b32ead0ea1d5d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
+  firstButton: {fileID: 738779572}
 --- !u!1 &1204248042
 GameObject:
   m_ObjectHideFlags: 0
@@ -8368,7 +8508,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -8469,11 +8609,11 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247974740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalPosition: {x: 0, y: 0, z: 90.000275}
   m_LocalScale: {x: 2, y: 9, z: 0.009259259}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1023463684}
+  m_Father: {fileID: 475406370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8494,6 +8634,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShowHide
   show: {fileID: 569814744}
   show1: {fileID: 1771597114}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!114 &1247974743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8964,6 +9106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 1437790252}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!1 &1307582261
 GameObject:
   m_ObjectHideFlags: 0
@@ -9018,6 +9162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HIde
   hide: {fileID: 569814744}
   hide1: {fileID: 672181400}
+  canvasGroup: {fileID: 475406372}
 --- !u!114 &1307582264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9039,7 +9184,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -9185,7 +9330,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -9277,7 +9422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1337897695
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9406,6 +9551,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 1437790252}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!1 &1387255931
 GameObject:
   m_ObjectHideFlags: 0
@@ -9689,6 +9836,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1437790253}
+  - component: {fileID: 1437790254}
   m_Layer: 0
   m_Name: Stage2
   m_TagString: Untagged
@@ -9714,6 +9862,19 @@ Transform:
   - {fileID: 722291789}
   m_Father: {fileID: 569814745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1437790254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437790252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f0a26a6d8c85640b32ead0ea1d5d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
+  firstButton: {fileID: 1127110406}
 --- !u!1 &1464965519
 GameObject:
   m_ObjectHideFlags: 0
@@ -9885,6 +10046,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 1898389561}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!114 &1489060377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10099,6 +10262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1518956858}
+  - component: {fileID: 1518956859}
   m_Layer: 0
   m_Name: Stage4
   m_TagString: Untagged
@@ -10124,6 +10288,19 @@ Transform:
   - {fileID: 206468688}
   m_Father: {fileID: 569814745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1518956859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518956857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f0a26a6d8c85640b32ead0ea1d5d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
+  firstButton: {fileID: 985065150}
 --- !u!1 &1537101099
 GameObject:
   m_ObjectHideFlags: 0
@@ -10272,6 +10449,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 1199102882}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!1 &1565019489
 GameObject:
   m_ObjectHideFlags: 0
@@ -10820,6 +10999,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1638013935}
   m_CullTransparentMesh: 1
+--- !u!1 &1653717961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1653717963}
+  - component: {fileID: 1653717962}
+  m_Layer: 0
+  m_Name: HideMouseCursor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1653717962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653717961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa45fbb6a3607cc4f93668c3420f1212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HideMouseCursor
+--- !u!4 &1653717963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653717961}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.36725, y: 0.18079, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1668937498
 GameObject:
   m_ObjectHideFlags: 0
@@ -11250,7 +11473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1716628835
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11379,6 +11602,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 932336916}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!1 &1721989168
 GameObject:
   m_ObjectHideFlags: 0
@@ -11391,6 +11616,7 @@ GameObject:
   - component: {fileID: 1721989170}
   - component: {fileID: 1721989169}
   - component: {fileID: 1721989172}
+  - component: {fileID: 1721989173}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11517,6 +11743,18 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &1721989173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721989168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12cbf4017caf674eb5df367ccfc2b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::size
 --- !u!1 &1728807104
 GameObject:
   m_ObjectHideFlags: 0
@@ -11673,7 +11911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1748474667
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11802,6 +12040,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 1518956857}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!1 &1767146661
 GameObject:
   m_ObjectHideFlags: 0
@@ -11952,6 +12192,7 @@ GameObject:
   - component: {fileID: 1771597118}
   - component: {fileID: 1771597117}
   - component: {fileID: 1771597120}
+  - component: {fileID: 1771597121}
   m_Layer: 5
   m_Name: modoru
   m_TagString: Untagged
@@ -12088,6 +12329,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HIde
   hide: {fileID: 569814744}
   hide1: {fileID: 1771597114}
+  canvasGroup: {fileID: 475406372}
+--- !u!114 &1771597121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771597114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f0a26a6d8c85640b32ead0ea1d5d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
+  firstButton: {fileID: 1771597117}
 --- !u!1 &1811652586
 GameObject:
   m_ObjectHideFlags: 0
@@ -12508,6 +12763,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1898389562}
+  - component: {fileID: 1898389563}
   m_Layer: 0
   m_Name: Stage1
   m_TagString: Untagged
@@ -12533,6 +12789,19 @@ Transform:
   - {fileID: 799122228}
   m_Father: {fileID: 569814745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1898389563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898389561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f0a26a6d8c85640b32ead0ea1d5d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
+  firstButton: {fileID: 1227525889}
 --- !u!1 &1901187759
 GameObject:
   m_ObjectHideFlags: 0
@@ -12561,11 +12830,11 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901187759}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalPosition: {x: 0, y: 0, z: 90.000275}
   m_LocalScale: {x: 2, y: 9, z: 0.009259259}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1023463684}
+  m_Father: {fileID: 475406370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12586,6 +12855,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShowHide
   show: {fileID: 569814744}
   show1: {fileID: 1771597114}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!114 &1901187762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12708,11 +12979,11 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905142134}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalPosition: {x: 0, y: 0, z: 90.000275}
   m_LocalScale: {x: 2, y: 9, z: 0.009259259}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1023463684}
+  m_Father: {fileID: 475406370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12733,6 +13004,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShowHide
   show: {fileID: 569814744}
   show1: {fileID: 1771597114}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!114 &1905142137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13155,6 +13428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HIde
   hide: {fileID: 569814744}
   hide1: {fileID: 1199102882}
+  canvasGroup: {fileID: 475406372}
 --- !u!114 &2022413781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13176,7 +13450,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -13488,6 +13762,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Show
   show: {fileID: 569814744}
   show1: {fileID: 499863539}
+  canvasGroup: {fileID: 475406372}
+  size: 1.2
 --- !u!1 &2125171444
 GameObject:
   m_ObjectHideFlags: 0
@@ -13542,6 +13818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HIde
   hide: {fileID: 569814744}
   hide1: {fileID: 499863539}
+  canvasGroup: {fileID: 475406372}
 --- !u!114 &2125171447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13563,7 +13840,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -13645,3 +13922,4 @@ SceneRoots:
   - {fileID: 475406370}
   - {fileID: 1023463684}
   - {fileID: 643894726}
+  - {fileID: 1653717963}

@@ -9,7 +9,7 @@ public class Goal : MonoBehaviour
     public string stageSelectSceneName = "StageSelect";
 
     private bool isOpen;
-    private bool isGoal;
+    public static bool isGoal;
 
     void Update()
     {

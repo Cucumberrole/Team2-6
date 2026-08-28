@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class SceneMove : MonoBehaviour
@@ -7,4 +8,6 @@ public class SceneMove : MonoBehaviour
     {
         SceneManager.LoadScene("StageSelect");
     }
+ 
 }
+

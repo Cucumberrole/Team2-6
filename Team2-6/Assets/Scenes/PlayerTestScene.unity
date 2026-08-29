@@ -205,8 +205,8 @@ Transform:
   m_GameObject: {fileID: 321725814}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -9, z: 0}
-  m_LocalScale: {x: 36, y: 2, z: 1}
+  m_LocalPosition: {x: 1.5, y: -9, z: 0}
+  m_LocalScale: {x: 33.0012, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -362,7 +362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d5cf4cfe3c9c742a6df554098db674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaserDamage
-  damage: 1
 --- !u!61 &554295631
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1023,7 +1022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379db222a5f0b374bba6f6bb7743be04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerItem
-  abilityType: 0
 --- !u!212 &2122829020
 SpriteRenderer:
   serializedVersion: 2
@@ -1156,7 +1154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 541847303647770811, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 541847303647770811, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
       propertyPath: m_LocalPosition.y

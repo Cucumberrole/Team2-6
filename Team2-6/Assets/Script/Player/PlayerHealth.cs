@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -22,6 +23,16 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHp = maxHp;
         SetBarrierVisual(false);
+    }
+
+    void Update()
+    {
+        Vector3 viewportPosition = Camera.main.WorldToViewportPoint(transform.position);
+
+        if (viewportPosition.y < -0.1f)
+        {
+            Die();
+        }
     }
 
     public void TakeDamage(int damage)
@@ -113,5 +124,6 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Playerが倒れました");
+        SceneManager.LoadScene("GameOver");
     }
 }

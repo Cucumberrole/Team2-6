@@ -13,11 +13,29 @@ public class PlayerHealth : MonoBehaviour
     private int currentHp;
     private bool isInvincible;
     private bool hasBarrier;
+    private bool isDead;
+
+    private float barrierEndTime = -1f;
 
     private Coroutine invincibleCoroutine;
     private Coroutine barrierCoroutine;
 
     public int CurrentHp => currentHp;
+    public bool IsInvincible => isInvincible;
+    public bool HasBarrier => hasBarrier;
+
+    public float BarrierRemainingTime
+    {
+        get
+        {
+            if (!hasBarrier || barrierEndTime < 0f)
+            {
+                return -1f;
+            }
+
+            return Mathf.Max(0f, barrierEndTime - Time.time);
+        }
+    }
 
     void Start()
     {
@@ -37,6 +55,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (isDead)
+        {
+            return;
+        }
+
         if (isInvincible)
         {
             return;
@@ -70,7 +93,9 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator InvincibleRoutine(float duration)
     {
         isInvincible = true;
+
         yield return new WaitForSeconds(duration);
+
         isInvincible = false;
         invincibleCoroutine = null;
     }
@@ -88,7 +113,12 @@ public class PlayerHealth : MonoBehaviour
 
         if (duration > 0f)
         {
+            barrierEndTime = Time.time + duration;
             barrierCoroutine = StartCoroutine(BarrierRoutine(duration));
+        }
+        else
+        {
+            barrierEndTime = -1f;
         }
     }
 
@@ -96,14 +126,18 @@ public class PlayerHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
 
-        barrierCoroutine = null;
         hasBarrier = false;
+        barrierEndTime = -1f;
+        barrierCoroutine = null;
+
         SetBarrierVisual(false);
     }
 
     private void RemoveBarrier()
     {
         hasBarrier = false;
+        barrierEndTime = -1f;
+
         SetBarrierVisual(false);
 
         if (barrierCoroutine != null)
@@ -123,6 +157,13 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        if (isDead)
+        {
+            return;
+        }
+
+        isDead = true;
+
         Debug.Log("Playerが倒れました");
         SceneManager.LoadScene("GameOver");
     }

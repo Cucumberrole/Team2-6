@@ -3,7 +3,7 @@ using UnityEngine;
 public enum PlayerAbilityType
 {
     None,
-    SpeedDoubleJump,
+    DoubleJump,
     Invincible,
     Freeze,
     BarrierOneHit,
@@ -16,10 +16,6 @@ public class PlayerAbility : MonoBehaviour
 {
     [Header("現在の能力")]
     public PlayerAbilityType currentAbility = PlayerAbilityType.None;
-
-    [Header("1面：速度UP・2段ジャンプ")]
-    public float minSpeedIncrease = 1f;
-    public float maxSpeedIncrease = 2f;
 
     [Header("2面：無敵")]
     public float invincibleDuration = 3f;
@@ -48,13 +44,59 @@ public class PlayerAbility : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && currentAbility != PlayerAbilityType.None)
+        switch (currentAbility)
         {
-            ActivateAbility();
+            case PlayerAbilityType.DoubleJump:
+                if (Input.GetKeyDown(KeyCode.H))
+                {
+                    ActivateAbility();
+                }
+                break;
+
+            case PlayerAbilityType.Invincible:
+                if (Input.GetKeyDown(KeyCode.J))
+                {
+                    ActivateAbility();
+                }
+                break;
+
+            case PlayerAbilityType.Freeze:
+                if (Input.GetKeyDown(KeyCode.K))
+                {
+                    ActivateAbility();
+                }
+                break;
+
+            case PlayerAbilityType.BarrierOneHit:
+                if (Input.GetKeyDown(KeyCode.L))
+                {
+                    ActivateAbility();
+                }
+                break;
+
+            case PlayerAbilityType.BarrierTimed:
+                if (Input.GetKeyDown(KeyCode.N))
+                {
+                    ActivateAbility();
+                }
+                break;
+
+            case PlayerAbilityType.HomingShot:
+                if (Input.GetKeyDown(KeyCode.M))
+                {
+                    ActivateAbility();
+                }
+                break;
+
+            case PlayerAbilityType.FireShot:
+                if (Input.GetKeyDown(KeyCode.Comma))
+                {
+                    ActivateAbility();
+                }
+                break;
         }
     }
 
-    // 能力アイテム取得時に呼ばれる
     public void AcquireAbility(PlayerAbilityType abilityType)
     {
         currentAbility = abilityType;
@@ -65,8 +107,8 @@ public class PlayerAbility : MonoBehaviour
     {
         switch (currentAbility)
         {
-            case PlayerAbilityType.SpeedDoubleJump:
-                playerMove.ActivateSpeedDoubleJump(minSpeedIncrease, maxSpeedIncrease);
+            case PlayerAbilityType.DoubleJump:
+                playerMove.ActivateDoubleJump();
                 break;
 
             case PlayerAbilityType.Invincible:
@@ -104,12 +146,14 @@ public class PlayerAbility : MonoBehaviour
         foreach (Collider2D hit in hits)
         {
             EnemyFreeze enemy = hit.GetComponentInParent<EnemyFreeze>();
+
             if (enemy != null)
             {
                 enemy.Freeze(freezeDuration);
             }
 
             FreezableWater water = hit.GetComponentInParent<FreezableWater>();
+
             if (water != null)
             {
                 water.Freeze(freezeDuration);

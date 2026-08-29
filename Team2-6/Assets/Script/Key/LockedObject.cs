@@ -2,30 +2,30 @@ using UnityEngine;
 
 public class LockedObject : MonoBehaviour
 {
-    public Collider2D keyCollider;
-    public GameObject lockObject;
+    private bool isUnlocked;
 
-    void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // 最初は紫の鍵を取得できない
-        if (keyCollider != null)
+        if (isUnlocked)
         {
-            keyCollider.enabled = false;
-        }
-    }
-
-    public void Unlock()
-    {
-        // 紫の鍵を取得可能にする
-        if (keyCollider != null)
-        {
-            keyCollider.enabled = true;
+            return;
         }
 
-        // ロックしている箱を消す
-        if (lockObject != null)
+        if (!collision.gameObject.CompareTag("Player"))
         {
-            Destroy(lockObject);
+            return;
         }
+
+        // 解除鍵を持っているか確認
+        if (!UnlockKeyManager.Instance.UseKey())
+        {
+            return;
+        }
+
+        isUnlocked = true;
+
+        Debug.Log("障害物を解除しました");
+
+        Destroy(gameObject);
     }
 }

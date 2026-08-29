@@ -61,50 +61,50 @@ public class StageClear : MonoBehaviour
         if (Map1Play && Goal.isGoal)
         {
             Map1Clear = true;
-            Map1Play = false;
         }
 
         if (Map2Play && Goal.isGoal)
         {
             Map2Clear = true;
-            Map2Play = false;
         }
 
         if (Map3Play && Goal.isGoal)
         {
             Map3Clear = true;
-            Map3Play = false;
         }
 
         if (Map4Play && Goal.isGoal)
         {
             Map4Clear = true;
-            Map4Play = false;
         }
 
         if (Map5Play && Goal.isGoal)
         {
             Map5Clear = true;
-            Map5Play = false;
         }
 
         if (Map6Play && Goal.isGoal)
         {
             Map6Clear = true;
-            Map6Play = false;
         }
 
         if (Map7Play && Goal.isGoal)
         {
             Map7Clear = true;
-            Map7Play = false;
         }
 
         if (Map8Play && Goal.isGoal)
         {
             Map8Clear = true;
-            Map8Play = false;
         }
+        Map1Play = false;
+        Map2Play = false;
+        Map3Play = false;
+        Map4Play = false;
+        Map5Play = false;
+        Map6Play = false;
+        Map7Play = false;
+        Map8Play = false;
 
         if (Map1Clear)
         {

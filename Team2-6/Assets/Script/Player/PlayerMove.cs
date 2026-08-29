@@ -10,7 +10,6 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rb;
     private float moveInput;
     private bool isGround;
-    private float speedBonus;
     private bool doubleJumpEnabled;
     private bool doubleJumpUsed;
     private int facingDirection = 1;
@@ -38,8 +37,7 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        float currentMoveSpeed = moveSpeed + speedBonus;
-        rb.linearVelocity = new Vector2(moveInput * currentMoveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
     }
 
     private void MoveInput()
@@ -69,7 +67,6 @@ public class PlayerMove : MonoBehaviour
             return;
         }
 
-        // 1面能力取得後は空中でもう1回ジャンプ可能
         if (doubleJumpEnabled && !doubleJumpUsed)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
@@ -77,10 +74,8 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    // 1面能力
-    public void ActivateSpeedDoubleJump(float minSpeedIncrease, float maxSpeedIncrease)
+    public void ActivateDoubleJump()
     {
-        speedBonus = Random.Range(minSpeedIncrease, maxSpeedIncrease);
         doubleJumpEnabled = true;
     }
 

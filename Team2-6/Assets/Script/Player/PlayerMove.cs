@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,10 @@ public class PlayerMove : MonoBehaviour
     public float moveSpeed = 3f;
     public float jumpPower = 5.6f;
 
+    [Header("5面：突進")]
+    public float dashSpeed = 12f;
+    public float dashDuration = 0.3f;
+
     private Rigidbody2D rb;
     private float moveInput;
     private bool isGround;
@@ -14,10 +19,15 @@ public class PlayerMove : MonoBehaviour
     private bool doubleJumpUsed;
     private int facingDirection = 1;
 
+    private bool isDashing;
+    private int dashDirection;
+    private Coroutine dashCoroutine;
+
     private readonly HashSet<Collider2D> groundColliders = new();
 
     public int FacingDirection => facingDirection;
     public bool IsGround => isGround;
+    public bool IsDashing => isDashing;
     public float HorizontalInput => moveInput;
 
     void Start()
@@ -27,6 +37,11 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if (isDashing)
+        {
+            return;
+        }
+
         MoveInput();
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -37,6 +52,12 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isDashing)
+        {
+            rb.linearVelocity = new Vector2(dashDirection * dashSpeed, 0f);
+            return;
+        }
+
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
     }
 
@@ -79,6 +100,43 @@ public class PlayerMove : MonoBehaviour
         doubleJumpEnabled = true;
     }
 
+    public void ActivateDash()
+    {
+        if (isDashing)
+        {
+            return;
+        }
+
+        dashDirection = facingDirection;
+        dashCoroutine = StartCoroutine(DashRoutine());
+    }
+
+    private IEnumerator DashRoutine()
+    {
+        isDashing = true;
+
+        yield return new WaitForSeconds(dashDuration);
+
+        isDashing = false;
+        dashCoroutine = null;
+    }
+
+    private void TryBreakObject(Collider2D targetCollider)
+    {
+        if (!isDashing)
+        {
+            return;
+        }
+
+        BreakableObject breakableObject =
+            targetCollider.GetComponentInParent<BreakableObject>();
+
+        if (breakableObject != null)
+        {
+            breakableObject.Break();
+        }
+    }
+
     private bool IsGroundContact(Collision2D collision)
     {
         foreach (ContactPoint2D contact in collision.contacts)
@@ -114,11 +172,13 @@ public class PlayerMove : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         UpdateGroundState(collision);
+        TryBreakObject(collision.collider);
     }
 
     void OnCollisionStay2D(Collision2D collision)
     {
         UpdateGroundState(collision);
+        TryBreakObject(collision.collider);
     }
 
     void OnCollisionExit2D(Collision2D collision)

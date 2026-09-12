@@ -7,7 +7,7 @@ public enum PlayerAbilityType
     Invincible,
     Freeze,
     BarrierOneHit,
-    BarrierTimed,
+    Dash,
     HomingShot,
     FireShot
 }
@@ -24,9 +24,6 @@ public class PlayerAbility : MonoBehaviour
     public float freezeDuration = 3f;
     public float tileSize = 1f;
     public Vector2 freezeAreaOffset;
-
-    [Header("5面：時間制バリア")]
-    public float timedBarrierDuration = 3f;
 
     [Header("6・7面：弾")]
     public Transform firePoint;
@@ -74,7 +71,7 @@ public class PlayerAbility : MonoBehaviour
                 }
                 break;
 
-            case PlayerAbilityType.BarrierTimed:
+            case PlayerAbilityType.Dash:
                 if (Input.GetKeyDown(KeyCode.N))
                 {
                     ActivateAbility();
@@ -123,8 +120,8 @@ public class PlayerAbility : MonoBehaviour
                 playerHealth.ActivateBarrier(0f);
                 break;
 
-            case PlayerAbilityType.BarrierTimed:
-                playerHealth.ActivateBarrier(timedBarrierDuration);
+            case PlayerAbilityType.Dash:
+                playerMove.ActivateDash();
                 break;
 
             case PlayerAbilityType.HomingShot:

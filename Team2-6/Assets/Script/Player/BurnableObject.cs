@@ -3,17 +3,42 @@ using UnityEngine;
 
 public class BurnableObject : MonoBehaviour
 {
-    public float burnTime = 1f;
+    [Header("燃焼時間")]
+    [Min(0f)]
+    public float burnTime = 2f;
+
+    [Header("表示")]
     public GameObject burningVisual;
+    public SpriteRenderer treeSpriteRenderer;
+    public Sprite burnedSprite;
 
     private bool isBurning;
+    private bool isBurned;
+
+    private void Awake()
+    {
+        // 同じオブジェクトの SpriteRenderer は自動で取得する。
+        if (treeSpriteRenderer == null)
+        {
+            treeSpriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        // 炎は木の子オブジェクトを指定する。
+        if (burningVisual != null)
+        {
+            burningVisual.SetActive(false);
+        }
+    }
 
     public void Burn()
     {
-        if (!isBurning)
+        // 燃焼中・燃焼済みの木には、重複して着火しない。
+        if (isBurning || isBurned)
         {
-            StartCoroutine(BurnRoutine());
+            return;
         }
+
+        StartCoroutine(BurnRoutine());
     }
 
     private IEnumerator BurnRoutine()
@@ -25,7 +50,27 @@ public class BurnableObject : MonoBehaviour
             burningVisual.SetActive(true);
         }
 
-        yield return new WaitForSeconds(burnTime);
-        Destroy(gameObject);
+        // 燃えている間は、木の当たり判定を維持する。
+        yield return new WaitForSeconds(Mathf.Max(0f, burnTime));
+
+        if (burningVisual != null)
+        {
+            burningVisual.SetActive(false);
+        }
+
+        if (treeSpriteRenderer != null && burnedSprite != null)
+        {
+            treeSpriteRenderer.sprite = burnedSprite;
+        }
+
+        // 木本体と子の当たり判定を無効にする。見た目は残す。
+        Collider2D[] colliders = GetComponentsInChildren<Collider2D>(true);
+        foreach (Collider2D treeCollider in colliders)
+        {
+            treeCollider.enabled = false;
+        }
+
+        isBurned = true;
+        isBurning = false;
     }
 }

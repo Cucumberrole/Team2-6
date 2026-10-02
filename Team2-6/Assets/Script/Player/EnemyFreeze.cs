@@ -14,6 +14,7 @@ public class EnemyFreeze : MonoBehaviour
     private RigidbodyConstraints2D originalConstraints;
     private Coroutine freezeCoroutine;
     private bool isFrozen;
+    private bool isBurning;
 
     void Start()
     {
@@ -33,12 +34,35 @@ public class EnemyFreeze : MonoBehaviour
 
     public void Freeze(float duration)
     {
+        if (isBurning)
+        {
+            return;
+        }
+
         if (freezeCoroutine != null)
         {
             StopCoroutine(freezeCoroutine);
         }
 
         freezeCoroutine = StartCoroutine(FreezeRoutine(duration));
+    }
+
+    // EnemyBurn から呼び出す。燃焼後に凍結解除で動き出すことを防ぐ。
+    public void StopForBurning()
+    {
+        isBurning = true;
+        isFrozen = false;
+
+        if (freezeCoroutine != null)
+        {
+            StopCoroutine(freezeCoroutine);
+            freezeCoroutine = null;
+        }
+
+        if (frozenVisual != null)
+        {
+            frozenVisual.SetActive(false);
+        }
     }
 
     private IEnumerator FreezeRoutine(float duration)

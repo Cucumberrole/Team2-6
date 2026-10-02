@@ -220,7 +220,7 @@ MonoBehaviour:
   tileSize: 1
   freezeAreaOffset: {x: 0, y: 0}
   firePoint: {fileID: 5620922761450448068}
-  homingBulletPrefab: {fileID: 0}
+  homingBulletPrefab: {fileID: 2922684467168265705, guid: 71e76a10191fcd544891e5ee6c585937, type: 3}
   fireBulletPrefab: {fileID: 4887936865992669767, guid: 80716973d3584fe4bae8b497eb9a6249, type: 3}
 --- !u!114 &844966679807042835
 MonoBehaviour:

@@ -4,41 +4,49 @@ public class FireBullet : MonoBehaviour
 {
     public float speed = 8f;
     public float lifeTime = 5f;
-    public int damage = 1;
 
     private Rigidbody2D rb;
+    private bool hasHit;
 
-    void Awake()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Start()
+    private void Start()
     {
         Destroy(gameObject, lifeTime);
     }
 
     public void Initialize(int direction)
     {
-        rb.linearVelocity = Vector2.right * direction * speed;
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.right * direction * speed;
+        }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        EnemyMove enemy = other.GetComponentInParent<EnemyMove>();
+        if (hasHit)
+        {
+            return;
+        }
 
+        EnemyBurn enemy = other.GetComponentInParent<EnemyBurn>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damage);
+            hasHit = true;
+            enemy.Burn();
             Destroy(gameObject);
             return;
         }
 
-        BurnableObject burnable = other.GetComponentInParent<BurnableObject>();
-
-        if (burnable != null)
+        BurnableObject tree = other.GetComponentInParent<BurnableObject>();
+        if (tree != null)
         {
-            burnable.Burn();
+            hasHit = true;
+            tree.Burn();
             Destroy(gameObject);
         }
     }

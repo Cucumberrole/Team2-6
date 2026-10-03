@@ -8,6 +8,4 @@ public class SceneMove : MonoBehaviour
     {
         SceneManager.LoadScene("StageSelect");
     }
- 
 }
-

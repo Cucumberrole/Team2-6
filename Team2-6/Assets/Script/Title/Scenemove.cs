@@ -8,22 +8,27 @@ public class SceneMove : MonoBehaviour
     public CanvasGroup fadeCanvasGroup;
 
     [Header("切り替え先のシーン")]
-    public string sceneName = "StageSelect";
+    public string FastSceneName = "Tutorial";
+    public string SecondSceneName = "StageSelect";
 
     [Header("フェードの片道の時間（秒）")]
     [Min(0f)] public float fadeDuration = 0.5f;
 
     private bool isTransitioning;
+    private string targetSceneName;
+
+    private static bool tutorialPlayed = false;
 
     private void Awake()
     {
         if (fadeCanvasGroup == null)
         {
-            Debug.LogError("SceneMove: Fade Canvas Group に黒いパネルを設定してください。", this);
+            Debug.LogError("Fade Canvas Groupを設定してください。");
             return;
         }
 
         isTransitioning = true;
+
         fadeCanvasGroup.alpha = 1f;
         fadeCanvasGroup.blocksRaycasts = true;
         fadeCanvasGroup.interactable = false;
@@ -34,8 +39,8 @@ public class SceneMove : MonoBehaviour
         if (fadeCanvasGroup == null)
             yield break;
 
-        // シーン開始時は黒い画面から徐々に表示する。
         yield return FadeTo(0f);
+
         fadeCanvasGroup.blocksRaycasts = false;
         isTransitioning = false;
     }
@@ -46,15 +51,31 @@ public class SceneMove : MonoBehaviour
         if (isTransitioning || fadeCanvasGroup == null)
             return;
 
-        if (string.IsNullOrWhiteSpace(sceneName) ||
-            !Application.CanStreamedLevelBeLoaded(sceneName))
+        // ゲーム起動後、最初の1回
+        if (!tutorialPlayed)
         {
-            Debug.LogError("SceneMove: 切り替え先のシーン名と Build Profiles の Scene List を確認してください。", this);
+            targetSceneName = FastSceneName;
+
+            // Tutorialへ行ったことを記録
+            tutorialPlayed = true;
+        }
+        else
+        {
+            // 2回目以降
+            targetSceneName = SecondSceneName;
+        }
+
+        if (!Application.CanStreamedLevelBeLoaded(targetSceneName))
+        {
+            Debug.LogError(
+                "シーン「" + targetSceneName + "」がScene Listにありません。"
+            );
             return;
         }
 
         isTransitioning = true;
         fadeCanvasGroup.blocksRaycasts = true;
+
         StartCoroutine(FadeOutAndLoad());
     }
 
@@ -63,22 +84,34 @@ public class SceneMove : MonoBehaviour
         yield return FadeTo(1f);
         // 黒い画面を一度描画してから読み込む。
         yield return null;
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(targetSceneName);
     }
 
     private IEnumerator FadeTo(float targetAlpha)
     {
         float startAlpha = fadeCanvasGroup.alpha;
         float elapsed = 0f;
-        float duration = fadeDuration;
 
-        while (elapsed < duration)
+        if (fadeDuration <= 0f)
+        {
+            fadeCanvasGroup.alpha = targetAlpha;
+            yield break;
+        }
+
+        while (elapsed < fadeDuration)
         {
             elapsed += Time.unscaledDeltaTime;
-            fadeCanvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsed / duration);
+
+            fadeCanvasGroup.alpha = Mathf.Lerp(
+                startAlpha,
+                targetAlpha,
+                elapsed / fadeDuration
+            );
+
             yield return null;
         }
 
         fadeCanvasGroup.alpha = targetAlpha;
     }
+
 }

@@ -289,7 +289,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneMove
   fadeCanvasGroup: {fileID: 1459943411}
-  sceneName: StageSelect
+  FastSceneName: Tutorial
+  SecondSceneName: StageSelect
   fadeDuration: 0.5
 --- !u!114 &60357493
 MonoBehaviour:
@@ -1478,7 +1479,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -92763682775099477, guid: a2e56e5283d1660499d81533e4bf2c6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 59e2633ea960641429b193afe2be2ad4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2130,7 +2131,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -92763682775099477, guid: a2e56e5283d1660499d81533e4bf2c6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 164de9d8a705f8f4898d2ffaa2f962e8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3179,6 +3180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1c6631804de1343a71ff3a7d152616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageClear
+  Map1Clear: 1
   NotClear1: {fileID: 175345668}
   Clear1: {fileID: 1489060375}
   Map2: {fileID: 1337897694}
@@ -3234,6 +3236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeepKeyboardSelection
   firstButton: {fileID: 175345671}
+  secondButton: {fileID: 1489060377}
 --- !u!1 &499863539
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,6 +3285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
   firstButton: {fileID: 378942741}
+  secondButton: {fileID: 0}
 --- !u!1 &508305805
 GameObject:
   m_ObjectHideFlags: 0
@@ -3980,7 +3984,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -92763682775099477, guid: a2e56e5283d1660499d81533e4bf2c6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a6752fd547f5e5c429e972fce83f3331, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4150,7 +4154,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2014481940046362358, guid: 7d70192f9e271314d8bc3b89b3df1fbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75dd569b521a50241bdf2f2671a7a0b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4280,7 +4284,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -92763682775099477, guid: a2e56e5283d1660499d81533e4bf2c6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47b4bce2eb2233141a265bd80015d83b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4634,6 +4638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
   firstButton: {fileID: 1193569216}
+  secondButton: {fileID: 0}
 --- !u!1 &722291788
 GameObject:
   m_ObjectHideFlags: 0
@@ -5014,7 +5019,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f0a26a6d8c85640b32ead0ea1d5d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
-  firstButton: {fileID: 921495392}
+  firstButton: {fileID: 921495395}
+  secondButton: {fileID: 0}
 --- !u!1 &790031692
 GameObject:
   m_ObjectHideFlags: 0
@@ -5657,7 +5663,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2014481940046362358, guid: 7d70192f9e271314d8bc3b89b3df1fbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 192e6d32c2745724b9117eeb03a28a8a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6023,7 +6029,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2014481940046362358, guid: 7d70192f9e271314d8bc3b89b3df1fbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 60a79e761b47d644196a11bef463cd0b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6537,6 +6543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
   firstButton: {fileID: 1336598644}
+  secondButton: {fileID: 0}
 --- !u!1 &935890928
 GameObject:
   m_ObjectHideFlags: 0
@@ -7358,7 +7365,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2014481940046362358, guid: 7d70192f9e271314d8bc3b89b3df1fbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e939e018b4291d4a85fba346d0a7e75, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8417,6 +8424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
   firstButton: {fileID: 738779572}
+  secondButton: {fileID: 0}
 --- !u!1 &1204248042
 GameObject:
   m_ObjectHideFlags: 0
@@ -9173,7 +9181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -92763682775099477, guid: a2e56e5283d1660499d81533e4bf2c6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c735a066cc24da4cb4869a6987875e2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9638,7 +9646,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2014481940046362358, guid: 7d70192f9e271314d8bc3b89b3df1fbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35359d0bbe2fd9b46af08913b9886d9f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9994,6 +10002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
   firstButton: {fileID: 1127110406}
+  secondButton: {fileID: 0}
 --- !u!1 &1459943410
 GameObject:
   m_ObjectHideFlags: 0
@@ -10331,7 +10340,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -222085261754257000, guid: 814abbb97931b8442bc5dd982db35e9a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7aeea420d3664a4429d78d50a41a960a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10645,6 +10654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
   firstButton: {fileID: 985065150}
+  secondButton: {fileID: 0}
 --- !u!1 &1537101099
 GameObject:
   m_ObjectHideFlags: 0
@@ -10741,7 +10751,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -92763682775099477, guid: a2e56e5283d1660499d81533e4bf2c6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0233c141baef17e47aeb1813ede1d654, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11914,7 +11924,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2014481940046362358, guid: 7d70192f9e271314d8bc3b89b3df1fbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 44787a785e2c56e40828966572bc1b9b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12352,7 +12362,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2014481940046362358, guid: 7d70192f9e271314d8bc3b89b3df1fbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9216ba972cc591048b0892523e010096, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12687,6 +12697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
   firstButton: {fileID: 1771597117}
+  secondButton: {fileID: 0}
 --- !u!1 &1811652586
 GameObject:
   m_ObjectHideFlags: 0
@@ -13146,6 +13157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeepButtonSelected
   firstButton: {fileID: 1227525889}
+  secondButton: {fileID: 0}
 --- !u!1 &1901187759
 GameObject:
   m_ObjectHideFlags: 0
@@ -14054,7 +14066,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -92763682775099477, guid: a2e56e5283d1660499d81533e4bf2c6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a78ac10c9a43711478779ecec1b252f2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -27,7 +27,7 @@ public class StageClear : MonoBehaviour
     public GameObject NotClear4;
     public GameObject Clear4;
     public GameObject HibeMap4;
-
+     
     public static bool Map5Play;
     public static bool Map5Clear;
     public GameObject Map5;

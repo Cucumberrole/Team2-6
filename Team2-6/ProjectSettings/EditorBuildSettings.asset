@@ -23,6 +23,30 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameClear.unity
     guid: f5225f65c1be9cf46bcb9074d8fee1df
+  - enabled: 1
+    path: Assets/Scenes/PlayMap3.unity
+    guid: 7211c34ae0bc5a544b777843b3e2b7b2
+  - enabled: 1
+    path: Assets/Scenes/PlayMap4.unity
+    guid: aff6ec6f6e7a82f4697b0595600fa1c8
+  - enabled: 1
+    path: Assets/Scenes/PlayMap5.unity
+    guid: 187063c0b8649da45abae8fa12683d68
+  - enabled: 1
+    path: Assets/Scenes/PlayMap6.unity
+    guid: a12f467f64f84974784d89c510c8a3d8
+  - enabled: 1
+    path: Assets/Scenes/PlayMap7.unity
+    guid: 00e2b3bd6f336a943ab7bab5d198fff1
+  - enabled: 1
+    path: Assets/Scenes/PlayMap8-1.unity
+    guid: d8230a5ccfd81e440b64ed42d18ebc22
+  - enabled: 1
+    path: Assets/Scenes/PlayMap8-2.unity
+    guid: bb211377f5ddd5b449c04dd3a4f9c771
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 5f365b36d6a394c4dbc06c1008e4d410
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

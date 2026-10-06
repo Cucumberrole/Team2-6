@@ -5,7 +5,7 @@ public class SceneMove8 : MonoBehaviour
 {
     public void ChangeScene()
     {
-           SceneManager.LoadScene("PlayMap8");
+           SceneManager.LoadScene("PlayMap8-1");
         StageClear.Map8Play = true;
     }
 }

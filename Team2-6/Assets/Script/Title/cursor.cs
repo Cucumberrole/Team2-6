@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class KeepKeyboardSelection : MonoBehaviour
 {
     public Button firstButton;
+    public Button secondButton;
 
     private GameObject lastSelected;
 
@@ -18,35 +19,26 @@ public class KeepKeyboardSelection : MonoBehaviour
     {
         yield return null;
 
-        // EventSystemがない場合
-        if (EventSystem.current == null)
-        {
-            Debug.LogWarning("EventSystemがありません");
-            yield break;
-        }
-
-        // FirstButtonが設定されていない場合
-        if (firstButton == null)
-        {
-            Debug.LogWarning("First Buttonが設定されていません");
-            yield break;
-        }
-
         EventSystem.current.SetSelectedGameObject(null);
-        firstButton.Select();
-
-        lastSelected = firstButton.gameObject;
+        if (firstButton != null && firstButton.gameObject.activeInHierarchy)
+        {
+            firstButton.Select();
+            lastSelected = firstButton.gameObject;
+        }
+        else if (secondButton != null && secondButton.gameObject.activeInHierarchy)
+        {
+            secondButton.Select();
+            lastSelected = secondButton.gameObject;
+        }
     }
 
     void Update()
     {
-        // EventSystemがなければ何もしない
         if (EventSystem.current == null)
             return;
 
         GameObject current = EventSystem.current.currentSelectedGameObject;
 
-        // 現在選択されているものを保存
         if (current != null)
         {
             lastSelected = current;
@@ -55,16 +47,22 @@ public class KeepKeyboardSelection : MonoBehaviour
         // 選択が消えた場合
         if (current == null)
         {
-            // 前回のボタンがまだ存在・有効なら戻す
+            // 最後に選択していたButtonがまだ有効
             if (lastSelected != null && lastSelected.activeInHierarchy)
             {
                 EventSystem.current.SetSelectedGameObject(lastSelected);
             }
-            // なければFirstButtonに戻す
+            // firstButton
             else if (firstButton != null && firstButton.gameObject.activeInHierarchy)
             {
                 firstButton.Select();
                 lastSelected = firstButton.gameObject;
+            }
+            // firstButtonが無ければsecondButton
+            else if (secondButton != null && secondButton.gameObject.activeInHierarchy)
+            {
+                secondButton.Select();
+                lastSelected = secondButton.gameObject;
             }
         }
     }

@@ -119,7 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< HEAD
 --- !u!1 &50091048
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,8 +210,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 793155947}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> PlayMap1
 --- !u!1 &70463543
 GameObject:
   m_ObjectHideFlags: 0
@@ -3745,7 +3742,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
 --- !u!1 &887200955
 GameObject:
   m_ObjectHideFlags: 0
@@ -3988,8 +3984,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> PlayMap1
 --- !u!1 &892020173
 GameObject:
   m_ObjectHideFlags: 0

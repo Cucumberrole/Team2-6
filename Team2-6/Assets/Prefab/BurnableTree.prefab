@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2156407808975966191}
   - component: {fileID: 3493535419606768714}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BurningVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 5994009089765072239}
   - component: {fileID: 8256282408408629924}
   - component: {fileID: 8248049256831409565}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BurnableTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}

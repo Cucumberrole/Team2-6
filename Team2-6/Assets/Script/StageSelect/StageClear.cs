@@ -105,6 +105,7 @@ public class StageClear : MonoBehaviour
         Map6Play = false;
         Map7Play = false;
         Map8Play = false;
+        Goal.isGoal = false;
 
         if (Map1Clear)
         {

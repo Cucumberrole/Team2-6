@@ -29,6 +29,7 @@ public class Key : MonoBehaviour
 
         collected = true;
         KeyManager.Instance.CollectKey();
+        GameAudioManager.Instance?.PlayItemGet();
         Destroy(gameObject);
     }
 }

@@ -14,6 +14,7 @@ public class UnlockKey : MonoBehaviour
         collected = true;
 
         UnlockKeyManager.Instance.AddKey();
+        GameAudioManager.Instance?.PlayItemGet();
 
         Destroy(gameObject);
     }

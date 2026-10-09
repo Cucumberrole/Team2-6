@@ -8,12 +8,15 @@ public class Goal : MonoBehaviour
     public BackgroundController backgroundController;
     public string stageSelectSceneName = "StageSelect";
 
+    [Header("BGM")]
+    public AudioSource stageBgmSource;
+
     private bool isOpen;
     public static bool isGoal;
 
     void Update()
     {
-        // Œ®‚ğ‚·‚×‚Äæ“¾‚µ‚½‚çƒS[ƒ‹‚ğŠJ‚­
+        // éµã‚’ã™ã¹ã¦å–å¾—ã—ãŸã‚‰ã‚´ãƒ¼ãƒ«ã‚’é–‹ã
         if (!isOpen && KeyManager.Instance.HasAllKeys)
         {
             OpenGoal();
@@ -29,7 +32,7 @@ public class Goal : MonoBehaviour
             goalLockObject.SetActive(false);
         }
 
-        Debug.Log("ƒS[ƒ‹‚ªŠJ‚«‚Ü‚µ‚½I");
+        Debug.Log("ã‚´ãƒ¼ãƒ«ãŒé–‹ãã¾ã—ãŸï¼");
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -48,7 +51,6 @@ public class Goal : MonoBehaviour
 
     private IEnumerator GoalSequence(Collider2D player)
     {
-        // Player‚Ì‘€ì‚ğ’â~
         PlayerMove playerMove = player.GetComponentInParent<PlayerMove>();
         Rigidbody2D rb = player.GetComponentInParent<Rigidbody2D>();
 
@@ -63,13 +65,36 @@ public class Goal : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
 
-        // ”wŒi‚ªŠ®‘S‚ÉƒJƒ‰[‚É‚È‚é‚Ü‚Å‘Ò‚Â
-        if (backgroundController != null)
+        if (stageBgmSource != null)
         {
-            yield return StartCoroutine(backgroundController.RestoreColorRoutine());
+            stageBgmSource.Stop();
         }
 
-        // ƒXƒe[ƒWƒZƒŒƒNƒg‚Ö–ß‚é
+        float jingleLength = 0f;
+
+        if (GameAudioManager.Instance != null)
+        {
+            jingleLength = GameAudioManager.Instance.PlayClearJingle();
+        }
+
+        Coroutine backgroundRoutine = null;
+
+        if (backgroundController != null)
+        {
+            backgroundRoutine = StartCoroutine(
+                backgroundController.RestoreColorRoutine()
+            );
+        }
+
+        if (jingleLength > 0f)
+        {
+            yield return new WaitForSeconds(jingleLength);
+        }
+        else if (backgroundRoutine != null)
+        {
+            yield return backgroundRoutine;
+        }
+
         SceneManager.LoadScene(stageSelectSceneName);
     }
 }

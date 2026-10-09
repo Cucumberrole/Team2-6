@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -7,18 +8,19 @@ public class Titlemove : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     public float size = 1.05f;
 
-    [Header("”»’è‚·‚éƒIƒuƒWƒFƒNƒg")]
+    [Header("åˆ¤å®šã«ä½¿ã†ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")]
     public GameObject object1;
     public GameObject object2;
     public GameObject object3;
 
-    [Header("‚»‚ê‚¼‚ê‚ÌUpˆÚ“®æ")]
+    [Header("ä¸Šæ–¹å‘ã®ç§»å‹•å…ˆ")]
     public Button upButton1;
     public Button upButton2;
     public Button upButton3;
 
     private Vector3 normalScale;
     private Button thisButton;
+    private bool canPlaySelectSE;
 
     void Start()
     {
@@ -26,30 +28,38 @@ public class Titlemove : MonoBehaviour, ISelectHandler, IDeselectHandler
         thisButton = GetComponent<Button>();
 
         ChangeNavigation();
+        StartCoroutine(EnableSelectSE());
     }
 
     void Update()
     {
-        // ƒIƒuƒWƒFƒNƒg‚Ìó‘Ô‚ª“r’†‚Å•Ï‚í‚éê‡‚É‚à‘Î‰
         ChangeNavigation();
+    }
+
+    private IEnumerator EnableSelectSE()
+    {
+        yield return null;
+        canPlaySelectSE = true;
     }
 
     void ChangeNavigation()
     {
+        if (thisButton == null)
+        {
+            return;
+        }
+
         Navigation nav = thisButton.navigation;
         nav.mode = Navigation.Mode.Explicit;
 
-        // object1‚ªTrue
         if (object1 != null && object1.activeInHierarchy)
         {
             nav.selectOnUp = upButton1;
         }
-        // object2‚ªTrue
         else if (object2 != null && object2.activeInHierarchy)
         {
             nav.selectOnUp = upButton2;
         }
-        // object3‚ªTrue
         else if (object3 != null && object3.activeInHierarchy)
         {
             nav.selectOnUp = upButton3;
@@ -61,6 +71,11 @@ public class Titlemove : MonoBehaviour, ISelectHandler, IDeselectHandler
     public void OnSelect(BaseEventData eventData)
     {
         transform.localScale = normalScale * size;
+
+        if (canPlaySelectSE)
+        {
+            GameAudioManager.Instance?.PlaySelect();
+        }
     }
 
     public void OnDeselect(BaseEventData eventData)
@@ -70,6 +85,7 @@ public class Titlemove : MonoBehaviour, ISelectHandler, IDeselectHandler
 
     public void ChangeScene()
     {
+        GameAudioManager.Instance?.PlayDecide();
         SceneManager.LoadScene("TitleScene");
     }
 }

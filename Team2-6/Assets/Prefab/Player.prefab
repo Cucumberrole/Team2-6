@@ -134,10 +134,10 @@ GameObject:
   - component: {fileID: 7585721914778986517}
   - component: {fileID: 5790661255385664875}
   - component: {fileID: 238078116551937589}
-  - component: {fileID: 2975255799792644405}
   - component: {fileID: 844966679807042835}
-  - component: {fileID: 1484220595431546747}
   - component: {fileID: 6314831180131069788}
+  - component: {fileID: 2975255799792644405}
+  - component: {fileID: 1484220595431546747}
   - component: {fileID: 2758945925799023923}
   - component: {fileID: 6973832257546488233}
   - component: {fileID: 8955259030101762425}
@@ -298,28 +298,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.68594205, y: 1.059321}
   m_EdgeRadius: 0
---- !u!114 &2975255799792644405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3559000109128042257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bed3c52e9572a4283fe65a6b19f16c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAbility
-  currentAbility: 0
-  invincibleDuration: 3
-  freezeDuration: 3
-  tileSize: 1
-  freezeAreaOffset: {x: 0, y: 0}
-  freezeEffectObject: {fileID: 6649357206944849555}
-  freezeEffectDuration: 0.3
-  firePoint: {fileID: 5620922761450448068}
-  homingBulletPrefab: {fileID: 2922684467168265705, guid: 71e76a10191fcd544891e5ee6c585937, type: 3}
-  fireBulletPrefab: {fileID: 4887936865992669767, guid: 80716973d3584fe4bae8b497eb9a6249, type: 3}
 --- !u!114 &844966679807042835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,22 +317,6 @@ MonoBehaviour:
   leftBack: {fileID: 21300000, guid: 30b1d7ac0a7f81040b8dce21221ec7d3, type: 3}
   leftJump: {fileID: 21300000, guid: fcd5327181ba22c4e937ea85b4d88aee, type: 3}
   animationSpeed: 0.2
---- !u!114 &1484220595431546747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3559000109128042257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9804187cfb662c479f83ecc76797bba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  maxHp: 5
-  barrierVisual: {fileID: 664517865486209875}
-  playerSpriteRenderer: {fileID: 7585721914778986517}
-  invincibleAlpha: 0.5
 --- !u!114 &6314831180131069788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +333,51 @@ MonoBehaviour:
   jumpPower: 5.6
   dashSpeed: 12
   dashDuration: 0.3
+--- !u!114 &2975255799792644405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3559000109128042257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8bed3c52e9572a4283fe65a6b19f16c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAbility
+  currentAbility: 0
+  invincibleDuration: 3
+  invincibleCooldown: 0.5
+  freezeDuration: 3
+  tileSize: 1
+  freezeOffsetX: 1
+  freezeOffsetY: 0
+  freezeCooldown: 0.5
+  freezeEffectObject: {fileID: 6649357206944849555}
+  freezeEffectDuration: 0.3
+  barrierCooldown: 0.5
+  dashCooldown: 0.7
+  firePoint: {fileID: 5620922761450448068}
+  homingBulletPrefab: {fileID: 2922684467168265705, guid: 71e76a10191fcd544891e5ee6c585937, type: 3}
+  homingShotCooldown: 0.6
+  fireBulletPrefab: {fileID: 4887936865992669767, guid: 80716973d3584fe4bae8b497eb9a6249, type: 3}
+  fireShotCooldown: 0.6
+--- !u!114 &1484220595431546747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3559000109128042257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9804187cfb662c479f83ecc76797bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHp: 5
+  barrierVisual: {fileID: 664517865486209875}
+  playerSpriteRenderer: {fileID: 7585721914778986517}
+  invincibleAlpha: 0.5
 --- !u!114 &2758945925799023923
 MonoBehaviour:
   m_ObjectHideFlags: 0

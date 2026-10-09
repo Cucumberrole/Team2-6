@@ -2,17 +2,18 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Scenemove : MonoBehaviour
+public class SceneMove : MonoBehaviour
 {
-    [Header("ƒtƒF[ƒh—p‚Ì•‚¢ƒpƒlƒ‹")]
+    [Header("ãƒ•ã‚§ãƒ¼ãƒ‰ç”¨ã®é»’ã„ãƒ‘ãƒãƒ«")]
     public CanvasGroup fadeCanvasGroup;
 
-    [Header("Ø‚è‘Ö‚¦æ‚ÌƒV[ƒ“")]
+    [Header("é·ç§»å…ˆã®ã‚·ãƒ¼ãƒ³")]
     public string FastSceneName = "Tutorial";
     public string SecondSceneName = "StageSelect";
 
-    [Header("ƒtƒF[ƒh‚Ì•Ğ“¹‚ÌŠÔi•bj")]
-    [Min(0f)] public float fadeDuration = 0.5f;
+    [Header("ãƒ•ã‚§ãƒ¼ãƒ‰æ™‚é–“")]
+    [Min(0f)]
+    public float fadeDuration = 0.5f;
 
     private bool isTransitioning;
     private string targetSceneName;
@@ -23,7 +24,7 @@ public class Scenemove : MonoBehaviour
     {
         if (fadeCanvasGroup == null)
         {
-            Debug.LogError("Fade Canvas Group‚ğİ’è‚µ‚Ä‚­‚¾‚³‚¢B");
+            Debug.LogError("Fade Canvas GroupãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");
             return;
         }
 
@@ -37,7 +38,9 @@ public class Scenemove : MonoBehaviour
     private IEnumerator Start()
     {
         if (fadeCanvasGroup == null)
+        {
             yield break;
+        }
 
         yield return FadeTo(0f);
 
@@ -45,33 +48,30 @@ public class Scenemove : MonoBehaviour
         isTransitioning = false;
     }
 
-    // ƒ{ƒ^ƒ“‚Ì On Click() ‚©‚çŒÄ‚Ño‚·B
     public void ChangeScene()
     {
         if (isTransitioning || fadeCanvasGroup == null)
+        {
             return;
+        }
 
-        // ƒQ[ƒ€‹N“®ŒãAÅ‰‚Ì1‰ñ
         if (!tutorialPlayed)
         {
             targetSceneName = FastSceneName;
-
-            // Tutorial‚Ös‚Á‚½‚±‚Æ‚ğ‹L˜^
             tutorialPlayed = true;
         }
         else
         {
-            // 2‰ñ–ÚˆÈ~
             targetSceneName = SecondSceneName;
         }
 
         if (!Application.CanStreamedLevelBeLoaded(targetSceneName))
         {
-            Debug.LogError(
-                "ƒV[ƒ“u" + targetSceneName + "v‚ªScene List‚É‚ ‚è‚Ü‚¹‚ñB"
-            );
+            Debug.LogError("ã‚·ãƒ¼ãƒ³ã€Œ" + targetSceneName + "ã€ãŒScene Listã«ã‚ã‚Šã¾ã›ã‚“ã€‚");
             return;
         }
+
+        GameAudioManager.Instance?.PlayDecide();
 
         isTransitioning = true;
         fadeCanvasGroup.blocksRaycasts = true;
@@ -82,8 +82,8 @@ public class Scenemove : MonoBehaviour
     private IEnumerator FadeOutAndLoad()
     {
         yield return FadeTo(1f);
-        // •‚¢‰æ–Ê‚ğˆê“x•`‰æ‚µ‚Ä‚©‚ç“Ç‚İ‚ŞB
         yield return null;
+
         SceneManager.LoadScene(targetSceneName);
     }
 
@@ -113,5 +113,4 @@ public class Scenemove : MonoBehaviour
 
         fadeCanvasGroup.alpha = targetAlpha;
     }
-
 }

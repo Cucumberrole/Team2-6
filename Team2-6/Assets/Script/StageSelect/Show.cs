@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,27 +9,36 @@ public class Show : MonoBehaviour, ISelectHandler, IDeselectHandler
 
     public CanvasGroup canvasGroup;
 
-    // 選択時の大きさ
+    [Header("驕ｸ謚樊凾縺ｮ螟ｧ縺阪＆")]
     public float size = 1.1f;
 
     private Vector3 normalScale;
+    private bool canPlaySelectSE;
 
-    // 開くときに押したボタンを記憶
     public static GameObject lastButton;
 
     void Start()
     {
-        // 最初の大きさを保存
         normalScale = transform.localScale;
+        StartCoroutine(EnableSelectSE());
     }
 
-    // WASDで選択されたとき
+    private IEnumerator EnableSelectSE()
+    {
+        yield return null;
+        canPlaySelectSE = true;
+    }
+
     public void OnSelect(BaseEventData eventData)
     {
         transform.localScale = normalScale * size;
+
+        if (canPlaySelectSE)
+        {
+            GameAudioManager.Instance?.PlaySelect();
+        }
     }
 
-    // 選択が外れたとき
     public void OnDeselect(BaseEventData eventData)
     {
         transform.localScale = normalScale;
@@ -36,13 +46,13 @@ public class Show : MonoBehaviour, ISelectHandler, IDeselectHandler
 
     public void OnObject()
     {
-        // 現在選択しているボタンを保存
+        GameAudioManager.Instance?.PlayDecide();
+
         lastButton = EventSystem.current.currentSelectedGameObject;
 
         show.SetActive(true);
         show1.SetActive(true);
 
-        // 元のCanvasを操作不能
         canvasGroup.interactable = false;
     }
 }

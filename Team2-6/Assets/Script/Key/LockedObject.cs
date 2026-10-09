@@ -16,7 +16,7 @@ public class LockedObject : MonoBehaviour
             return;
         }
 
-        // ‰ğœŒ®‚ğ‚Á‚Ä‚¢‚é‚©Šm”F
+        // è§£é™¤éµã‚’æŒã£ã¦ã„ã‚‹ã‹ç¢ºèª
         if (!UnlockKeyManager.Instance.UseKey())
         {
             return;
@@ -24,7 +24,9 @@ public class LockedObject : MonoBehaviour
 
         isUnlocked = true;
 
-        Debug.Log("áŠQ•¨‚ğ‰ğœ‚µ‚Ü‚µ‚½");
+        Debug.Log("éšœå®³ç‰©ã‚’è§£é™¤ã—ã¾ã—ãŸ");
+
+        GameAudioManager.Instance?.PlayUnlock();
 
         Destroy(gameObject);
     }

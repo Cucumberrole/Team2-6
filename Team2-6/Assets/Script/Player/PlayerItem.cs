@@ -35,6 +35,7 @@ public class PlayerItem : MonoBehaviour
 
         collected = true;
         playerAbility.AcquireAbility(abilityType);
+        GameAudioManager.Instance?.PlayItemGet();
         Destroy(gameObject);
     }
 

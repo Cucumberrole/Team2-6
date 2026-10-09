@@ -5,6 +5,8 @@ public class replay : MonoBehaviour
 {
     public void ChangeScene()
     {
+        GameAudioManager.Instance?.PlayDecide();
+
         if (StageClear.Map1Play)
         {
             SceneManager.LoadScene("PlayMap1");

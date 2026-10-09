@@ -2,9 +2,14 @@ using UnityEngine;
 
 public class HomingBullet : MonoBehaviour
 {
+    [Header("弾の設定")]
     public float speed = 6f;
     public float lifeTime = 5f;
     public int damage = 1;
+
+    [Header("敵の検知設定")]
+    [Min(0f)]
+    public float detectionRange = 5f;
 
     private EnemyMove target;
     private Rigidbody2D rb;
@@ -13,32 +18,64 @@ public class HomingBullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         target = FindClosestEnemy();
+
         Destroy(gameObject, lifeTime);
     }
 
     void FixedUpdate()
     {
-        if (target == null)
+        if (rb == null)
         {
-            target = FindClosestEnemy();
             return;
         }
 
-        Vector2 direction = (target.transform.position - transform.position).normalized;
+        if (target != null)
+        {
+            float distance =
+                Vector2.Distance(transform.position, target.transform.position);
+
+            if (distance > detectionRange)
+            {
+                target = null;
+            }
+        }
+
+        if (target == null)
+        {
+            target = FindClosestEnemy();
+
+            if (target == null)
+            {
+                rb.linearVelocity = Vector2.zero;
+                return;
+            }
+        }
+
+        Vector2 direction =
+            (target.transform.position - transform.position).normalized;
+
         rb.linearVelocity = direction * speed;
     }
 
     private EnemyMove FindClosestEnemy()
     {
-        EnemyMove[] enemies = FindObjectsByType<EnemyMove>(FindObjectsSortMode.None);
+        EnemyMove[] enemies =
+            FindObjectsByType<EnemyMove>(FindObjectsSortMode.None);
+
         EnemyMove closest = null;
-        float closestDistance = Mathf.Infinity;
+        float closestDistance = detectionRange;
 
         foreach (EnemyMove enemy in enemies)
         {
-            float distance = Vector2.Distance(transform.position, enemy.transform.position);
+            if (enemy == null)
+            {
+                continue;
+            }
 
-            if (distance < closestDistance)
+            float distance =
+                Vector2.Distance(transform.position, enemy.transform.position);
+
+            if (distance <= closestDistance)
             {
                 closestDistance = distance;
                 closest = enemy;
@@ -57,5 +94,10 @@ public class HomingBullet : MonoBehaviour
             enemy.TakeDamage(damage);
             Destroy(gameObject);
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }

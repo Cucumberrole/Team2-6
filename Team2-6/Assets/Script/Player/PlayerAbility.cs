@@ -20,26 +20,46 @@ public class PlayerAbility : MonoBehaviour
 
     [Header("2面：無敵")]
     public float invincibleDuration = 3f;
+    [Min(0f)] public float invincibleCooldown = 0.5f;
 
     [Header("3面：凍結")]
     public float freezeDuration = 3f;
     public float tileSize = 1f;
     public float freezeOffsetX = 1f;
     public float freezeOffsetY = 0f;
+    [Min(0f)] public float freezeCooldown = 0.5f;
 
     [Header("3面：凍結エフェクト")]
     public GameObject freezeEffectObject;
     public float freezeEffectDuration = 0.3f;
 
-    [Header("6・7面：弾")]
+    [Header("4面：バリア")]
+    [Min(0f)] public float barrierCooldown = 0.5f;
+
+    [Header("5面：突進")]
+    [Min(0f)] public float dashCooldown = 0.7f;
+
+    [Header("6面：追尾弾")]
     public Transform firePoint;
     public GameObject homingBulletPrefab;
+    [Min(0f)] public float homingShotCooldown = 0.6f;
+
+    [Header("7面：火炎弾")]
     public GameObject fireBulletPrefab;
+    [Min(0f)] public float fireShotCooldown = 0.6f;
 
     private PlayerMove playerMove;
     private PlayerHealth playerHealth;
     private PlayerSE playerSE;
+
     private Coroutine freezeEffectCoroutine;
+
+    private bool invincibleAbilityLocked;
+    private bool freezeAbilityLocked;
+    private bool barrierAbilityLocked;
+    private bool dashAbilityLocked;
+    private bool homingShotAbilityLocked;
+    private bool fireShotAbilityLocked;
 
     void Start()
     {
@@ -119,37 +139,206 @@ public class PlayerAbility : MonoBehaviour
         switch (currentAbility)
         {
             case PlayerAbilityType.DoubleJump:
+                if (playerMove == null)
+                {
+                    return;
+                }
+
                 playerMove.ActivateDoubleJump();
                 playerSE?.PlayGenericAbility();
                 break;
 
             case PlayerAbilityType.Invincible:
-                playerHealth.ActivateInvincible(invincibleDuration);
-                playerSE?.PlayGenericAbility();
+                ActivateInvincibleAbility();
                 break;
 
             case PlayerAbilityType.Freeze:
-                ActivateFreeze();
-                playerSE?.PlayFreeze();
+                ActivateFreezeAbility();
                 break;
 
             case PlayerAbilityType.BarrierOneHit:
-                playerHealth.ActivateBarrier(0f);
-                playerSE?.PlayGenericAbility();
+                ActivateBarrierAbility();
                 break;
 
             case PlayerAbilityType.Dash:
-                playerMove.ActivateDash();
+                ActivateDashAbility();
                 break;
 
             case PlayerAbilityType.HomingShot:
-                ShootHomingBullet();
+                ActivateHomingShotAbility();
                 break;
 
             case PlayerAbilityType.FireShot:
-                ShootFireBullet();
+                ActivateFireShotAbility();
                 break;
         }
+    }
+
+    private void ActivateInvincibleAbility()
+    {
+        if (invincibleAbilityLocked || playerHealth == null)
+        {
+            return;
+        }
+
+        invincibleAbilityLocked = true;
+        playerHealth.ActivateInvincible(invincibleDuration);
+        playerSE?.PlayGenericAbility();
+
+        StartCoroutine(InvincibleAbilityRoutine());
+    }
+
+    private IEnumerator InvincibleAbilityRoutine()
+    {
+        while (playerHealth != null && playerHealth.IsInvincible)
+        {
+            yield return null;
+        }
+
+        if (invincibleCooldown > 0f)
+        {
+            yield return new WaitForSeconds(invincibleCooldown);
+        }
+
+        invincibleAbilityLocked = false;
+    }
+
+    private void ActivateFreezeAbility()
+    {
+        if (freezeAbilityLocked || playerMove == null)
+        {
+            return;
+        }
+
+        freezeAbilityLocked = true;
+        ActivateFreeze();
+        playerSE?.PlayFreeze();
+
+        StartCoroutine(FreezeAbilityRoutine());
+    }
+
+    private IEnumerator FreezeAbilityRoutine()
+    {
+        if (freezeDuration > 0f)
+        {
+            yield return new WaitForSeconds(freezeDuration);
+        }
+
+        if (freezeCooldown > 0f)
+        {
+            yield return new WaitForSeconds(freezeCooldown);
+        }
+
+        freezeAbilityLocked = false;
+    }
+
+    private void ActivateBarrierAbility()
+    {
+        if (barrierAbilityLocked || playerHealth == null)
+        {
+            return;
+        }
+
+        barrierAbilityLocked = true;
+        playerHealth.ActivateBarrier(0f);
+        playerSE?.PlayGenericAbility();
+
+        StartCoroutine(BarrierAbilityRoutine());
+    }
+
+    private IEnumerator BarrierAbilityRoutine()
+    {
+        while (playerHealth != null && playerHealth.HasBarrier)
+        {
+            yield return null;
+        }
+
+        if (barrierCooldown > 0f)
+        {
+            yield return new WaitForSeconds(barrierCooldown);
+        }
+
+        barrierAbilityLocked = false;
+    }
+
+    private void ActivateDashAbility()
+    {
+        if (dashAbilityLocked || playerMove == null || playerMove.IsDashing)
+        {
+            return;
+        }
+
+        dashAbilityLocked = true;
+        playerMove.ActivateDash();
+
+        StartCoroutine(DashAbilityRoutine());
+    }
+
+    private IEnumerator DashAbilityRoutine()
+    {
+        while (playerMove != null && playerMove.IsDashing)
+        {
+            yield return null;
+        }
+
+        if (dashCooldown > 0f)
+        {
+            yield return new WaitForSeconds(dashCooldown);
+        }
+
+        dashAbilityLocked = false;
+    }
+
+    private void ActivateHomingShotAbility()
+    {
+        if (homingShotAbilityLocked)
+        {
+            return;
+        }
+
+        if (!ShootHomingBullet())
+        {
+            return;
+        }
+
+        homingShotAbilityLocked = true;
+        StartCoroutine(HomingShotCooldownRoutine());
+    }
+
+    private IEnumerator HomingShotCooldownRoutine()
+    {
+        if (homingShotCooldown > 0f)
+        {
+            yield return new WaitForSeconds(homingShotCooldown);
+        }
+
+        homingShotAbilityLocked = false;
+    }
+
+    private void ActivateFireShotAbility()
+    {
+        if (fireShotAbilityLocked)
+        {
+            return;
+        }
+
+        if (!ShootFireBullet())
+        {
+            return;
+        }
+
+        fireShotAbilityLocked = true;
+        StartCoroutine(FireShotCooldownRoutine());
+    }
+
+    private IEnumerator FireShotCooldownRoutine()
+    {
+        if (fireShotCooldown > 0f)
+        {
+            yield return new WaitForSeconds(fireShotCooldown);
+        }
+
+        fireShotAbilityLocked = false;
     }
 
     private void ActivateFreeze()
@@ -220,33 +409,42 @@ public class PlayerAbility : MonoBehaviour
         freezeEffectCoroutine = null;
     }
 
-    private void ShootHomingBullet()
+    private bool ShootHomingBullet()
     {
         if (firePoint == null || homingBulletPrefab == null)
         {
-            return;
+            return false;
         }
 
         Instantiate(homingBulletPrefab, firePoint.position, Quaternion.identity);
         playerSE?.PlayShot();
+
+        return true;
     }
 
-    private void ShootFireBullet()
+    private bool ShootFireBullet()
     {
         if (firePoint == null || fireBulletPrefab == null)
         {
-            return;
+            return false;
         }
 
-        GameObject bullet = Instantiate(fireBulletPrefab, firePoint.position, Quaternion.identity);
+        GameObject bullet = Instantiate(
+            fireBulletPrefab,
+            firePoint.position,
+            Quaternion.identity
+        );
+
         FireBullet fireBullet = bullet.GetComponent<FireBullet>();
 
-        if (fireBullet != null)
+        if (fireBullet != null && playerMove != null)
         {
             fireBullet.Initialize(playerMove.FacingDirection);
         }
 
         playerSE?.PlayFireShot();
+
+        return true;
     }
 
     void OnDrawGizmosSelected()

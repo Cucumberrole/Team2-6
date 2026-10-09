@@ -10,6 +10,12 @@ public class PlayerHealth : MonoBehaviour
     [Header("バリア表示")]
     public GameObject barrierVisual;
 
+    [Header("無敵時の表示")]
+    public SpriteRenderer playerSpriteRenderer;
+    public float invincibleAlpha = 0.5f;
+
+    private float normalAlpha = 1f;
+
     private int currentHp;
     private bool isInvincible;
     private bool hasBarrier;
@@ -19,6 +25,8 @@ public class PlayerHealth : MonoBehaviour
 
     private Coroutine invincibleCoroutine;
     private Coroutine barrierCoroutine;
+
+    private PlayerDamageFlash damageFlash;
 
     public int CurrentHp => currentHp;
     public bool IsInvincible => isInvincible;
@@ -41,6 +49,18 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHp = maxHp;
         SetBarrierVisual(false);
+
+        damageFlash = GetComponent<PlayerDamageFlash>();
+
+        if (playerSpriteRenderer == null)
+        {
+            playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        if (playerSpriteRenderer != null)
+        {
+            normalAlpha = playerSpriteRenderer.color.a;
+        }
     }
 
     void Update()
@@ -74,6 +94,11 @@ public class PlayerHealth : MonoBehaviour
         currentHp -= damage;
         Debug.Log("現在のHP：" + currentHp);
 
+        if (damageFlash != null)
+        {
+            damageFlash.Flash();
+        }
+
         if (currentHp <= 0)
         {
             Die();
@@ -93,10 +118,12 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator InvincibleRoutine(float duration)
     {
         isInvincible = true;
+        SetInvincibleVisual(true);
 
         yield return new WaitForSeconds(duration);
 
         isInvincible = false;
+        SetInvincibleVisual(false);
         invincibleCoroutine = null;
     }
 
@@ -153,6 +180,27 @@ public class PlayerHealth : MonoBehaviour
         {
             barrierVisual.SetActive(value);
         }
+    }
+
+    private void SetInvincibleVisual(bool value)
+    {
+        if (playerSpriteRenderer == null)
+        {
+            return;
+        }
+
+        Color color = playerSpriteRenderer.color;
+
+        if (value)
+        {
+            color.a = invincibleAlpha;
+        }
+        else
+        {
+            color.a = normalAlpha;
+        }
+
+        playerSpriteRenderer.color = color;
     }
 
     private void Die()

@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 844966679807042835}
   - component: {fileID: 1484220595431546747}
   - component: {fileID: 6314831180131069788}
+  - component: {fileID: 2758945925799023923}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -347,6 +348,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHp: 5
   barrierVisual: {fileID: 664517865486209875}
+  playerSpriteRenderer: {fileID: 7585721914778986517}
+  invincibleAlpha: 0.5
 --- !u!114 &6314831180131069788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,3 +366,19 @@ MonoBehaviour:
   jumpPower: 5.6
   dashSpeed: 12
   dashDuration: 0.3
+--- !u!114 &2758945925799023923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3559000109128042257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee9b1a0d4d87a94bbbbf391c16d944d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDamageFlash
+  spriteRenderer: {fileID: 7585721914778986517}
+  flashCount: 3
+  flashInterval: 0.1
+  flashColor: {r: 1, g: 0, b: 0, a: 1}

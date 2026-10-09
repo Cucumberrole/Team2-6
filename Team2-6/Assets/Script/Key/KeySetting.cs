@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class KeySetting : MonoBehaviour
 {
-    //チュートリアル用の鍵
+    [Header("このステージで必要な鍵の数")]
+    public int stageKeys = 1;
+
     void Start()
     {
         if (KeyManager.Instance != null)
         {
-            KeyManager.Instance.totalKeys = 1;
+            KeyManager.Instance.totalKeys = stageKeys;
         }
     }
 }

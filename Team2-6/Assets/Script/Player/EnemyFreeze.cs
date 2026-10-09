@@ -18,6 +18,9 @@ public class EnemyFreeze : MonoBehaviour
     private Coroutine freezeCoroutine;
     private bool isFrozen;
     private bool isBurning;
+    private bool frozenContactHandled;
+
+    public bool IsFrozen => isFrozen;
 
     void Start()
     {
@@ -64,6 +67,7 @@ public class EnemyFreeze : MonoBehaviour
     {
         isBurning = true;
         isFrozen = false;
+        frozenContactHandled = false;
 
         if (freezeCoroutine != null)
         {
@@ -85,6 +89,7 @@ public class EnemyFreeze : MonoBehaviour
     private IEnumerator FreezeRoutine(float duration)
     {
         isFrozen = true;
+        frozenContactHandled = false;
 
         if (rb != null)
         {
@@ -123,6 +128,7 @@ public class EnemyFreeze : MonoBehaviour
     private void Unfreeze()
     {
         isFrozen = false;
+        frozenContactHandled = false;
 
         if (rb != null)
         {
@@ -155,19 +161,41 @@ public class EnemyFreeze : MonoBehaviour
         freezeCoroutine = null;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public bool TryHandleFrozenPlayerContact(Collider2D other)
     {
-        if (isFrozen && collision.gameObject.GetComponentInParent<PlayerMove>() != null)
+        if (!isFrozen || frozenContactHandled)
+        {
+            return false;
+        }
+
+        if (other.GetComponentInParent<PlayerMove>() == null)
+        {
+            return false;
+        }
+
+        frozenContactHandled = true;
+
+        EnemyMove enemyMove = GetComponentInParent<EnemyMove>();
+
+        if (enemyMove != null)
+        {
+            enemyMove.Defeat();
+        }
+        else
         {
             Destroy(gameObject);
         }
+
+        return true;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        TryHandleFrozenPlayerContact(collision.collider);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (isFrozen && other.GetComponentInParent<PlayerMove>() != null)
-        {
-            Destroy(gameObject);
-        }
+        TryHandleFrozenPlayerContact(other);
     }
 }

@@ -1025,7 +1025,8 @@ GameObject:
   - component: {fileID: 206456242}
   - component: {fileID: 206456241}
   - component: {fileID: 206456240}
-  m_Layer: 0
+  - component: {fileID: 206456243}
+  m_Layer: 6
   m_Name: WaterSurface (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1062,7 +1063,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1152,6 +1153,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1833208750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &206456243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206456239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bb3f6615d795c43bb52a72f0fe0876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreezableWater
+  waterCollider: {fileID: 206456240}
+  waterSpriteRenderer: {fileID: 206456241}
+  frozenSprite: {fileID: 21300000, guid: 99003771bd1f07e44977fe5399049ae0, type: 3}
 --- !u!1001 &332558718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1496,7 +1512,8 @@ GameObject:
   - component: {fileID: 473042030}
   - component: {fileID: 473042029}
   - component: {fileID: 473042028}
-  m_Layer: 0
+  - component: {fileID: 473042031}
+  m_Layer: 6
   m_Name: WaterSurface (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1533,7 +1550,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1623,6 +1640,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1833208750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &473042031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473042027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bb3f6615d795c43bb52a72f0fe0876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreezableWater
+  waterCollider: {fileID: 473042028}
+  waterSpriteRenderer: {fileID: 473042029}
+  frozenSprite: {fileID: 21300000, guid: 99003771bd1f07e44977fe5399049ae0, type: 3}
 --- !u!1 &492612061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2524,11 +2556,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 720772319032088250, guid: cf5aa8959e5384c4788a8fe5abcbca79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.13
+      value: 6.067
       objectReference: {fileID: 0}
     - target: {fileID: 720772319032088250, guid: cf5aa8959e5384c4788a8fe5abcbca79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.1
+      value: 4.125
       objectReference: {fileID: 0}
     - target: {fileID: 720772319032088250, guid: cf5aa8959e5384c4788a8fe5abcbca79, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2595,7 +2627,8 @@ GameObject:
   - component: {fileID: 769519143}
   - component: {fileID: 769519142}
   - component: {fileID: 769519141}
-  m_Layer: 0
+  - component: {fileID: 769519144}
+  m_Layer: 6
   m_Name: WaterSurface (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2632,7 +2665,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -2722,6 +2755,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1833208750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &769519144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769519140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bb3f6615d795c43bb52a72f0fe0876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreezableWater
+  waterCollider: {fileID: 769519141}
+  waterSpriteRenderer: {fileID: 769519142}
+  frozenSprite: {fileID: 21300000, guid: 99003771bd1f07e44977fe5399049ae0, type: 3}
 --- !u!1001 &779873078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2999,6 +3047,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6087049036268476688, guid: 4e3443622c0e8464a878143d40d3a9db, type: 3}
   m_PrefabInstance: {fileID: 792689830}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &793532961 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 85748731343823590, guid: 94eac96a97ead7b4face6241eda2e3d9, type: 3}
+  m_PrefabInstance: {fileID: 29917176}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 091a6aa660d235a4ca9a80e875b0c9c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundController
 --- !u!1 &796122481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3453,6 +3512,7 @@ GameObject:
   - component: {fileID: 885188784}
   - component: {fileID: 885188783}
   - component: {fileID: 885188782}
+  - component: {fileID: 885188785}
   m_Layer: 6
   m_Name: WaterSurface (3)
   m_TagString: Untagged
@@ -3490,7 +3550,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -3580,6 +3640,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1833208750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &885188785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885188781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bb3f6615d795c43bb52a72f0fe0876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreezableWater
+  waterCollider: {fileID: 885188782}
+  waterSpriteRenderer: {fileID: 885188783}
+  frozenSprite: {fileID: 21300000, guid: 99003771bd1f07e44977fe5399049ae0, type: 3}
 --- !u!1 &925263685
 GameObject:
   m_ObjectHideFlags: 0
@@ -3867,7 +3942,8 @@ GameObject:
   - component: {fileID: 992486763}
   - component: {fileID: 992486762}
   - component: {fileID: 992486761}
-  m_Layer: 0
+  - component: {fileID: 992486764}
+  m_Layer: 6
   m_Name: WaterSurface (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3904,7 +3980,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -3994,6 +4070,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1833208750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &992486764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992486760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bb3f6615d795c43bb52a72f0fe0876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreezableWater
+  waterCollider: {fileID: 992486761}
+  waterSpriteRenderer: {fileID: 992486762}
+  frozenSprite: {fileID: 21300000, guid: 99003771bd1f07e44977fe5399049ae0, type: 3}
 --- !u!1 &1004635652
 GameObject:
   m_ObjectHideFlags: 0
@@ -4005,7 +4096,8 @@ GameObject:
   - component: {fileID: 1004635655}
   - component: {fileID: 1004635654}
   - component: {fileID: 1004635653}
-  m_Layer: 0
+  - component: {fileID: 1004635656}
+  m_Layer: 6
   m_Name: WaterSurface (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4042,7 +4134,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -4132,6 +4224,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1833208750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1004635656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004635652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bb3f6615d795c43bb52a72f0fe0876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreezableWater
+  waterCollider: {fileID: 1004635653}
+  waterSpriteRenderer: {fileID: 1004635654}
+  frozenSprite: {fileID: 21300000, guid: 99003771bd1f07e44977fe5399049ae0, type: 3}
 --- !u!1 &1009295952
 GameObject:
   m_ObjectHideFlags: 0
@@ -5384,7 +5491,8 @@ GameObject:
   - component: {fileID: 1443259113}
   - component: {fileID: 1443259112}
   - component: {fileID: 1443259111}
-  m_Layer: 0
+  - component: {fileID: 1443259114}
+  m_Layer: 6
   m_Name: WaterSurface (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5421,7 +5529,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -5511,6 +5619,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1833208750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1443259114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443259110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bb3f6615d795c43bb52a72f0fe0876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreezableWater
+  waterCollider: {fileID: 1443259111}
+  waterSpriteRenderer: {fileID: 1443259112}
+  frozenSprite: {fileID: 21300000, guid: 99003771bd1f07e44977fe5399049ae0, type: 3}
 --- !u!1 &1465523996
 GameObject:
   m_ObjectHideFlags: 0
@@ -5682,6 +5805,63 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &1488786623
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6158033584908040451, guid: af3cd48df6de9574a94144469d1aa52f, type: 3}
+      propertyPath: m_Name
+      value: BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114542962810064301, guid: af3cd48df6de9574a94144469d1aa52f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.60527
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114542962810064301, guid: af3cd48df6de9574a94144469d1aa52f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2218
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114542962810064301, guid: af3cd48df6de9574a94144469d1aa52f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114542962810064301, guid: af3cd48df6de9574a94144469d1aa52f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114542962810064301, guid: af3cd48df6de9574a94144469d1aa52f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114542962810064301, guid: af3cd48df6de9574a94144469d1aa52f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114542962810064301, guid: af3cd48df6de9574a94144469d1aa52f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114542962810064301, guid: af3cd48df6de9574a94144469d1aa52f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114542962810064301, guid: af3cd48df6de9574a94144469d1aa52f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114542962810064301, guid: af3cd48df6de9574a94144469d1aa52f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: af3cd48df6de9574a94144469d1aa52f, type: 3}
 --- !u!1 &1497813872
 GameObject:
   m_ObjectHideFlags: 0
@@ -6101,7 +6281,8 @@ GameObject:
   - component: {fileID: 1578998645}
   - component: {fileID: 1578998644}
   - component: {fileID: 1578998643}
-  m_Layer: 0
+  - component: {fileID: 1578998646}
+  m_Layer: 6
   m_Name: WaterSurface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6138,7 +6319,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -6228,6 +6409,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1833208750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1578998646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578998642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bb3f6615d795c43bb52a72f0fe0876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreezableWater
+  waterCollider: {fileID: 1578998643}
+  waterSpriteRenderer: {fileID: 1578998644}
+  frozenSprite: {fileID: 21300000, guid: 99003771bd1f07e44977fe5399049ae0, type: 3}
 --- !u!1 &1591504135
 GameObject:
   m_ObjectHideFlags: 0
@@ -6239,6 +6435,7 @@ GameObject:
   - component: {fileID: 1591504138}
   - component: {fileID: 1591504137}
   - component: {fileID: 1591504136}
+  - component: {fileID: 1591504139}
   m_Layer: 6
   m_Name: WaterSurface (7)
   m_TagString: Untagged
@@ -6276,7 +6473,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -6366,6 +6563,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1833208750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1591504139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591504135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bb3f6615d795c43bb52a72f0fe0876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreezableWater
+  waterCollider: {fileID: 1591504136}
+  waterSpriteRenderer: {fileID: 1591504137}
+  frozenSprite: {fileID: 21300000, guid: 99003771bd1f07e44977fe5399049ae0, type: 3}
 --- !u!1 &1595224483
 GameObject:
   m_ObjectHideFlags: 0
@@ -6585,7 +6797,8 @@ GameObject:
   - component: {fileID: 1716316333}
   - component: {fileID: 1716316332}
   - component: {fileID: 1716316331}
-  m_Layer: 0
+  - component: {fileID: 1716316334}
+  m_Layer: 6
   m_Name: WaterSurface (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6622,7 +6835,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -6712,6 +6925,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1833208750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1716316334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716316330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bb3f6615d795c43bb52a72f0fe0876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreezableWater
+  waterCollider: {fileID: 1716316331}
+  waterSpriteRenderer: {fileID: 1716316332}
+  frozenSprite: {fileID: 21300000, guid: 99003771bd1f07e44977fe5399049ae0, type: 3}
 --- !u!1 &1764820912
 GameObject:
   m_ObjectHideFlags: 0
@@ -6723,7 +6951,8 @@ GameObject:
   - component: {fileID: 1764820915}
   - component: {fileID: 1764820914}
   - component: {fileID: 1764820913}
-  m_Layer: 0
+  - component: {fileID: 1764820916}
+  m_Layer: 6
   m_Name: WaterSurface (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6760,7 +6989,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -6850,6 +7079,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1833208750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1764820916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764820912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bb3f6615d795c43bb52a72f0fe0876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreezableWater
+  waterCollider: {fileID: 1764820913}
+  waterSpriteRenderer: {fileID: 1764820914}
+  frozenSprite: {fileID: 21300000, guid: 99003771bd1f07e44977fe5399049ae0, type: 3}
 --- !u!1001 &1812186797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7548,7 +7792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 720772319032088250, guid: cf5aa8959e5384c4788a8fe5abcbca79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.17
+      value: -4.052
       objectReference: {fileID: 0}
     - target: {fileID: 720772319032088250, guid: cf5aa8959e5384c4788a8fe5abcbca79, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7754,6 +7998,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal
       objectReference: {fileID: 0}
+    - target: {fileID: 4312033685694377887, guid: 21edb6df9f9f6db4cb7b55f0190a895d, type: 3}
+      propertyPath: backgroundController
+      value: 
+      objectReference: {fileID: 793532961}
     - target: {fileID: 6005106753381316527, guid: 21edb6df9f9f6db4cb7b55f0190a895d, type: 3}
       propertyPath: m_Size.y
       value: 0.75
@@ -8017,7 +8265,8 @@ GameObject:
   - component: {fileID: 2126199293}
   - component: {fileID: 2126199292}
   - component: {fileID: 2126199291}
-  m_Layer: 0
+  - component: {fileID: 2126199294}
+  m_Layer: 6
   m_Name: WaterSurface (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8054,7 +8303,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -8144,6 +8393,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1833208750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2126199294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126199290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bb3f6615d795c43bb52a72f0fe0876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreezableWater
+  waterCollider: {fileID: 2126199291}
+  waterSpriteRenderer: {fileID: 2126199292}
+  frozenSprite: {fileID: 21300000, guid: 99003771bd1f07e44977fe5399049ae0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -8168,3 +8432,5 @@ SceneRoots:
   - {fileID: 2048892308}
   - {fileID: 1106697607}
   - {fileID: 1120208321}
+  - {fileID: 833697255}
+  - {fileID: 1488786623}

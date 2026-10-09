@@ -52,7 +52,6 @@ public class EnemyMove : MonoBehaviour
 
         float movement = speed * Time.deltaTime;
 
-        // 壁または地面の端で反転
         if (HasWallAhead(movement) ||
             !HasGroundAhead(movement))
         {
@@ -95,7 +94,9 @@ public class EnemyMove : MonoBehaviour
     private bool HasWallAhead(float movement)
     {
         if (wallCheck == null || wallLayer.value == 0)
+        {
             return false;
+        }
 
         Vector2 direction = speed >= 0f
             ? Vector2.right
@@ -155,37 +156,51 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
-    // 弾やプレイヤーとの接触判定
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // 弾が当たった場合
         if (other.CompareTag(bulletTag))
         {
             TakeDamage(bulletDamage);
-
-            // 弾を消す
             Destroy(other.gameObject);
             return;
         }
 
-        // プレイヤーが当たった場合
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player"))
         {
-            PlayerHealth playerHealth =
-                other.GetComponentInParent<PlayerHealth>();
+            return;
+        }
 
-            if (playerHealth != null)
+        EnemyFreeze enemyFreeze =
+            GetComponentInParent<EnemyFreeze>();
+
+        if (enemyFreeze != null)
+        {
+            if (enemyFreeze.TryHandleFrozenPlayerContact(other))
             {
-                playerHealth.TakeDamage(1);
+                return;
             }
+
+            if (enemyFreeze.IsFrozen)
+            {
+                return;
+            }
+        }
+
+        PlayerHealth playerHealth =
+            other.GetComponentInParent<PlayerHealth>();
+
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(1);
         }
     }
 
-    // ダメージ処理
     public void TakeDamage(int damage)
     {
         if (isDead)
+        {
             return;
+        }
 
         EnemyHP -= damage;
 
@@ -197,15 +212,20 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
-    // 敵の死亡処理
+    public void Defeat()
+    {
+        Die();
+    }
+
     private void Die()
     {
         if (isDead)
+        {
             return;
+        }
 
         isDead = true;
 
-        // 鍵を持っている敵なら鍵を落とす
         EnemyKey enemyKey = GetComponent<EnemyKey>();
 
         if (enemyKey != null)

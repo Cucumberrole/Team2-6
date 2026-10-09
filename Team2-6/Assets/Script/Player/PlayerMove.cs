@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour
     public float dashDuration = 0.3f;
 
     private Rigidbody2D rb;
+    private PlayerSE playerSE;
     private float moveInput;
     private bool isGround;
     private bool doubleJumpEnabled;
@@ -33,12 +34,14 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerSE = GetComponent<PlayerSE>();
     }
 
     void Update()
     {
         if (isDashing)
         {
+            playerSE?.SetFootsteps(false);
             return;
         }
 
@@ -48,6 +51,8 @@ public class PlayerMove : MonoBehaviour
         {
             Jump();
         }
+
+        playerSE?.SetFootsteps(isGround && Mathf.Abs(moveInput) > 0.01f);
     }
 
     void FixedUpdate()
@@ -85,6 +90,9 @@ public class PlayerMove : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
             isGround = false;
             doubleJumpUsed = false;
+
+            playerSE?.PlayJump();
+            playerSE?.SetFootsteps(false);
             return;
         }
 
@@ -92,6 +100,8 @@ public class PlayerMove : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
             doubleJumpUsed = true;
+
+            playerSE?.PlayJump();
         }
     }
 
@@ -108,6 +118,10 @@ public class PlayerMove : MonoBehaviour
         }
 
         dashDirection = facingDirection;
+
+        playerSE?.PlayDash();
+        playerSE?.SetFootsteps(false);
+
         dashCoroutine = StartCoroutine(DashRoutine());
     }
 
@@ -185,5 +199,10 @@ public class PlayerMove : MonoBehaviour
     {
         groundColliders.Remove(collision.collider);
         isGround = groundColliders.Count > 0;
+    }
+
+    void OnDisable()
+    {
+        playerSE?.SetFootsteps(false);
     }
 }

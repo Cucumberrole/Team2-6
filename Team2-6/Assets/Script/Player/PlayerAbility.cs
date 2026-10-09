@@ -32,11 +32,13 @@ public class PlayerAbility : MonoBehaviour
 
     private PlayerMove playerMove;
     private PlayerHealth playerHealth;
+    private PlayerSE playerSE;
 
     void Start()
     {
         playerMove = GetComponent<PlayerMove>();
         playerHealth = GetComponent<PlayerHealth>();
+        playerSE = GetComponent<PlayerSE>();
     }
 
     void Update()
@@ -106,18 +108,22 @@ public class PlayerAbility : MonoBehaviour
         {
             case PlayerAbilityType.DoubleJump:
                 playerMove.ActivateDoubleJump();
+                playerSE?.PlayGenericAbility();
                 break;
 
             case PlayerAbilityType.Invincible:
                 playerHealth.ActivateInvincible(invincibleDuration);
+                playerSE?.PlayGenericAbility();
                 break;
 
             case PlayerAbilityType.Freeze:
                 ActivateFreeze();
+                playerSE?.PlayFreeze();
                 break;
 
             case PlayerAbilityType.BarrierOneHit:
                 playerHealth.ActivateBarrier(0f);
+                playerSE?.PlayGenericAbility();
                 break;
 
             case PlayerAbilityType.Dash:
@@ -166,6 +172,7 @@ public class PlayerAbility : MonoBehaviour
         }
 
         Instantiate(homingBulletPrefab, firePoint.position, Quaternion.identity);
+        playerSE?.PlayShot();
     }
 
     private void ShootFireBullet()
@@ -182,6 +189,8 @@ public class PlayerAbility : MonoBehaviour
         {
             fireBullet.Initialize(playerMove.FacingDirection);
         }
+
+        playerSE?.PlayFireShot();
     }
 
     void OnDrawGizmosSelected()

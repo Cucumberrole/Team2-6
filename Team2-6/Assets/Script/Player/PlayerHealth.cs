@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
     private Coroutine barrierCoroutine;
 
     private PlayerDamageFlash damageFlash;
+    private PlayerSE playerSE;
 
     public int CurrentHp => currentHp;
     public bool IsInvincible => isInvincible;
@@ -51,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
         SetBarrierVisual(false);
 
         damageFlash = GetComponent<PlayerDamageFlash>();
+        playerSE = GetComponent<PlayerSE>();
 
         if (playerSpriteRenderer == null)
         {
@@ -94,15 +96,18 @@ public class PlayerHealth : MonoBehaviour
         currentHp -= damage;
         Debug.Log("現在のHP：" + currentHp);
 
+        if (currentHp <= 0)
+        {
+            Die();
+            return;
+        }
+
         if (damageFlash != null)
         {
             damageFlash.Flash();
         }
 
-        if (currentHp <= 0)
-        {
-            Die();
-        }
+        playerSE?.PlayDamage();
     }
 
     public void ActivateInvincible(float duration)
@@ -211,8 +216,34 @@ public class PlayerHealth : MonoBehaviour
         }
 
         isDead = true;
+        StartCoroutine(DeathRoutine());
+    }
 
+    private IEnumerator DeathRoutine()
+    {
         Debug.Log("Playerが倒れました");
+
+        playerSE?.SetFootsteps(false);
+        playerSE?.PlayDeath();
+
+        PlayerMove playerMove = GetComponent<PlayerMove>();
+
+        if (playerMove != null)
+        {
+            playerMove.enabled = false;
+        }
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+
+        float waitTime = playerSE != null ? playerSE.DeathClipLength : 0f;
+
+        yield return new WaitForSeconds(waitTime);
+
         SceneManager.LoadScene("GameOver");
     }
 }

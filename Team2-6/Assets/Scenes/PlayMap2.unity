@@ -4211,12 +4211,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5986223062390770548, guid: 568eb7fafce25164d971d180936ee7a5, type: 3}
       propertyPath: abilityType
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7011389588632856216, guid: 568eb7fafce25164d971d180936ee7a5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1a945fe98a13c204d9c94a825cd10c3d, type: 3}
+      objectReference: {fileID: 21300000, guid: b9eca72997e444249ad551c5d52b4963, type: 3}
     - target: {fileID: 7011389588632856216, guid: 568eb7fafce25164d971d180936ee7a5, type: 3}
       propertyPath: m_SortingOrder
       value: 0

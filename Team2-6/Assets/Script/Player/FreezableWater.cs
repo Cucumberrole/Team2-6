@@ -10,16 +10,11 @@ public class FreezableWater : MonoBehaviour
     public SpriteRenderer waterSpriteRenderer;
     public Sprite frozenSprite;
 
-    [Header("水面の子に配置した氷の息")]
-    public GameObject freezeEffect;
-    [Min(0f)]
-    public float effectDuration = 0.5f;
-
     private bool originalIsTrigger;
     private Sprite originalSprite;
     private Coroutine freezeCoroutine;
 
-    private void Awake()
+    void Awake()
     {
         if (waterCollider == null)
         {
@@ -31,7 +26,6 @@ public class FreezableWater : MonoBehaviour
             waterSpriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        // 凍結前の画像と当たり判定を保存する。
         if (waterCollider != null)
         {
             originalIsTrigger = waterCollider.isTrigger;
@@ -41,16 +35,10 @@ public class FreezableWater : MonoBehaviour
         {
             originalSprite = waterSpriteRenderer.sprite;
         }
-
-        if (freezeEffect != null)
-        {
-            freezeEffect.SetActive(false);
-        }
     }
 
     public void Freeze(float duration)
     {
-        // 再発動した場合は、その時点から凍結時間を数え直す。
         if (freezeCoroutine != null)
         {
             StopCoroutine(freezeCoroutine);
@@ -61,11 +49,6 @@ public class FreezableWater : MonoBehaviour
 
     private IEnumerator FreezeRoutine(float duration)
     {
-        if (freezeEffect != null)
-        {
-            freezeEffect.SetActive(true);
-        }
-
         if (waterSpriteRenderer != null && frozenSprite != null)
         {
             waterSpriteRenderer.sprite = frozenSprite;
@@ -76,19 +59,8 @@ public class FreezableWater : MonoBehaviour
             waterCollider.isTrigger = false;
         }
 
-        // 息の表示時間も凍結時間に含める。3秒の効果は合計3秒。
-        float visibleTime = Mathf.Clamp(effectDuration, 0f, duration);
-        if (visibleTime > 0f)
-        {
-            yield return new WaitForSeconds(visibleTime);
-        }
+        yield return new WaitForSeconds(duration);
 
-        if (freezeEffect != null)
-        {
-            freezeEffect.SetActive(false);
-        }
-
-        yield return new WaitForSeconds(duration - visibleTime);
         RestoreWater();
         freezeCoroutine = null;
     }
@@ -104,14 +76,9 @@ public class FreezableWater : MonoBehaviour
         {
             waterSpriteRenderer.sprite = originalSprite;
         }
-
-        if (freezeEffect != null)
-        {
-            freezeEffect.SetActive(false);
-        }
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
         if (freezeCoroutine != null)
         {

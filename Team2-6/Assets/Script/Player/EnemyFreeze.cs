@@ -8,10 +8,13 @@ public class EnemyFreeze : MonoBehaviour
 
     [Header("凍結表示")]
     public GameObject frozenVisual;
+    public SpriteRenderer enemySpriteRenderer;
+    public Color frozenColor = new Color(0.6f, 0.85f, 1f, 1f);
 
     private Rigidbody2D rb;
     private Animator animator;
     private RigidbodyConstraints2D originalConstraints;
+    private Color originalColor;
     private Coroutine freezeCoroutine;
     private bool isFrozen;
     private bool isBurning;
@@ -20,6 +23,16 @@ public class EnemyFreeze : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        if (enemySpriteRenderer == null)
+        {
+            enemySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
+
+        if (enemySpriteRenderer != null)
+        {
+            originalColor = enemySpriteRenderer.color;
+        }
 
         if (rb != null)
         {
@@ -47,7 +60,6 @@ public class EnemyFreeze : MonoBehaviour
         freezeCoroutine = StartCoroutine(FreezeRoutine(duration));
     }
 
-    // EnemyBurn から呼び出す。燃焼後に凍結解除で動き出すことを防ぐ。
     public void StopForBurning()
     {
         isBurning = true;
@@ -62,6 +74,11 @@ public class EnemyFreeze : MonoBehaviour
         if (frozenVisual != null)
         {
             frozenVisual.SetActive(false);
+        }
+
+        if (enemySpriteRenderer != null)
+        {
+            enemySpriteRenderer.color = originalColor;
         }
     }
 
@@ -93,7 +110,13 @@ public class EnemyFreeze : MonoBehaviour
             frozenVisual.SetActive(true);
         }
 
+        if (enemySpriteRenderer != null)
+        {
+            enemySpriteRenderer.color = frozenColor;
+        }
+
         yield return new WaitForSeconds(duration);
+
         Unfreeze();
     }
 
@@ -122,6 +145,11 @@ public class EnemyFreeze : MonoBehaviour
         if (frozenVisual != null)
         {
             frozenVisual.SetActive(false);
+        }
+
+        if (enemySpriteRenderer != null)
+        {
+            enemySpriteRenderer.color = originalColor;
         }
 
         freezeCoroutine = null;

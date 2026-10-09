@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public enum PlayerAbilityType
@@ -23,7 +24,12 @@ public class PlayerAbility : MonoBehaviour
     [Header("3面：凍結")]
     public float freezeDuration = 3f;
     public float tileSize = 1f;
-    public Vector2 freezeAreaOffset;
+    public float freezeOffsetX = 1f;
+    public float freezeOffsetY = 0f;
+
+    [Header("3面：凍結エフェクト")]
+    public GameObject freezeEffectObject;
+    public float freezeEffectDuration = 0.3f;
 
     [Header("6・7面：弾")]
     public Transform firePoint;
@@ -33,12 +39,18 @@ public class PlayerAbility : MonoBehaviour
     private PlayerMove playerMove;
     private PlayerHealth playerHealth;
     private PlayerSE playerSE;
+    private Coroutine freezeEffectCoroutine;
 
     void Start()
     {
         playerMove = GetComponent<PlayerMove>();
         playerHealth = GetComponent<PlayerHealth>();
         playerSE = GetComponent<PlayerSE>();
+
+        if (freezeEffectObject != null)
+        {
+            freezeEffectObject.SetActive(false);
+        }
     }
 
     void Update()
@@ -142,7 +154,14 @@ public class PlayerAbility : MonoBehaviour
 
     private void ActivateFreeze()
     {
-        Vector2 center = (Vector2)transform.position + freezeAreaOffset;
+        PlayFreezeEffect();
+
+        Vector2 offset = new Vector2(
+            freezeOffsetX * playerMove.FacingDirection,
+            freezeOffsetY
+        );
+
+        Vector2 center = (Vector2)transform.position + offset;
         Vector2 size = new Vector2(tileSize, tileSize * 3f);
         Collider2D[] hits = Physics2D.OverlapBoxAll(center, size, 0f);
 
@@ -162,6 +181,43 @@ public class PlayerAbility : MonoBehaviour
                 water.Freeze(freezeDuration);
             }
         }
+    }
+
+    private void PlayFreezeEffect()
+    {
+        if (freezeEffectObject == null)
+        {
+            return;
+        }
+
+        if (freezeEffectCoroutine != null)
+        {
+            StopCoroutine(freezeEffectCoroutine);
+        }
+
+        Vector3 rotation = freezeEffectObject.transform.localEulerAngles;
+
+        if (playerMove.FacingDirection > 0)
+        {
+            rotation.y = 0f;
+        }
+        else
+        {
+            rotation.y = 180f;
+        }
+
+        freezeEffectObject.transform.localEulerAngles = rotation;
+        freezeEffectCoroutine = StartCoroutine(FreezeEffectRoutine());
+    }
+
+    private IEnumerator FreezeEffectRoutine()
+    {
+        freezeEffectObject.SetActive(true);
+
+        yield return new WaitForSeconds(freezeEffectDuration);
+
+        freezeEffectObject.SetActive(false);
+        freezeEffectCoroutine = null;
     }
 
     private void ShootHomingBullet()
@@ -195,7 +251,19 @@ public class PlayerAbility : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        Vector2 center = (Vector2)transform.position + freezeAreaOffset;
+        int direction = 1;
+
+        if (Application.isPlaying && playerMove != null)
+        {
+            direction = playerMove.FacingDirection;
+        }
+
+        Vector2 offset = new Vector2(
+            freezeOffsetX * direction,
+            freezeOffsetY
+        );
+
+        Vector2 center = (Vector2)transform.position + offset;
         Gizmos.DrawWireCube(center, new Vector2(tileSize, tileSize * 3f));
     }
 }

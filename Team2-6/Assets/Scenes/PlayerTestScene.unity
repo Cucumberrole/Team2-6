@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 321725816}
   - component: {fileID: 321725815}
   - component: {fileID: 321725817}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -957,6 +957,7 @@ GameObject:
   - component: {fileID: 1631750278}
   - component: {fileID: 1631750277}
   - component: {fileID: 1631750276}
+  - component: {fileID: 1631750279}
   m_Layer: 0
   m_Name: WaterSurface
   m_TagString: Untagged
@@ -994,7 +995,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1084,6 +1085,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1631750279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631750275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bb3f6615d795c43bb52a72f0fe0876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreezableWater
+  waterCollider: {fileID: 1631750276}
+  waterSpriteRenderer: {fileID: 1631750277}
+  frozenSprite: {fileID: 21300000, guid: 99003771bd1f07e44977fe5399049ae0, type: 3}
 --- !u!1001 &1660765870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1136,6 +1152,10 @@ PrefabInstance:
       propertyPath: playerSpriteRenderer
       value: 
       objectReference: {fileID: 1103226273}
+    - target: {fileID: 2975255799792644405, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
+      propertyPath: freezeAreaOffset.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3559000109128042257, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1286,6 +1306,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 584044815817364418, guid: b7e88a04576829a41b2f76b8d80d3cb5, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546368649923907985, guid: b7e88a04576829a41b2f76b8d80d3cb5, type: 3}
+      propertyPath: scriptsToDisable.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4761676415261674373, guid: b7e88a04576829a41b2f76b8d80d3cb5, type: 3}
@@ -1566,12 +1590,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5986223062390770548, guid: 568eb7fafce25164d971d180936ee7a5, type: 3}
       propertyPath: abilityType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7011389588632856216, guid: 568eb7fafce25164d971d180936ee7a5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b9eca72997e444249ad551c5d52b4963, type: 3}
+      objectReference: {fileID: 21300000, guid: 60c25c14ddd3c3d4dbde066b15234c33, type: 3}
     - target: {fileID: 7103111976623045374, guid: 568eb7fafce25164d971d180936ee7a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.8

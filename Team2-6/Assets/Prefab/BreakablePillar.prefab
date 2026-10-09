@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1848197012343580866}
   - component: {fileID: 5143460038740533883}
   - component: {fileID: 4967373274755644555}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BreakablePillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1267515648977799193}
   - component: {fileID: 5446778598861555355}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Intact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2562585509600581638}
   - component: {fileID: 5210626308954922779}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BrokenTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2663577004261634619}
   - component: {fileID: 8277512373470735550}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Break Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2512598489140834436}
   - component: {fileID: 7584105969907313403}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BrokenBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -135,10 +135,10 @@ GameObject:
   - component: {fileID: 8674199898938863104}
   - component: {fileID: 9197730669822627821}
   - component: {fileID: 3515444922503431595}
-  - component: {fileID: 8442253081436293893}
+  - component: {fileID: 8060251125825285446}
   - component: {fileID: 5864551299240088427}
   m_Layer: 0
-  m_Name: Enemy Rockkey6
+  m_Name: Enemy Rockkey5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -305,7 +305,7 @@ MonoBehaviour:
   scriptsToDisable:
   - {fileID: 0}
   enemyAnimator: {fileID: 0}
---- !u!114 &8442253081436293893
+--- !u!114 &8060251125825285446
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyKey
   enemyMove: {fileID: 9197730669822627821}
-  keyPrefab: {fileID: 6857701905754370621, guid: f3a2e5fe5fdfc074aa4fdc627a90216b, type: 3}
+  keyPrefab: {fileID: 6857701905754370621, guid: 0c188ac59aab52440a61b29f7d050df2, type: 3}
   dropPoint: {fileID: 0}
 --- !u!1 &7357219998968007605
 GameObject:
@@ -449,7 +449,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8656320499699318657, guid: 3b73e8e17aa95cd4e8548970ce9e20f9, type: 3}
+  m_Sprite: {fileID: -5064618351720860376, guid: 0908341a9ee92d74d8b69588cd149329, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

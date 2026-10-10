@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 public enum PlayerAbilityType
 {
@@ -55,6 +56,9 @@ public class PlayerAbility : MonoBehaviour
     private Coroutine freezeEffectCoroutine;
     private Vector3 freezeEffectBasePosition;
 
+    private HashSet<PlayerAbilityType> unlockedAbilities =
+    new HashSet<PlayerAbilityType>();
+
     private bool invincibleAbilityLocked;
     private bool freezeAbilityLocked;
     private bool barrierAbilityLocked;
@@ -77,68 +81,64 @@ public class PlayerAbility : MonoBehaviour
 
     void Update()
     {
-        switch (currentAbility)
+        if (HasAbility(PlayerAbilityType.DoubleJump)
+        && Input.GetKeyDown(KeyCode.H))
         {
-            case PlayerAbilityType.DoubleJump:
-                if (Input.GetKeyDown(KeyCode.H))
-                {
-                    ActivateAbility();
-                }
-                break;
+            ActivateAbility(PlayerAbilityType.DoubleJump);
+        }
 
-            case PlayerAbilityType.Invincible:
-                if (Input.GetKeyDown(KeyCode.J))
-                {
-                    ActivateAbility();
-                }
-                break;
+        if (HasAbility(PlayerAbilityType.Invincible)
+            && Input.GetKeyDown(KeyCode.J))
+        {
+            ActivateAbility(PlayerAbilityType.Invincible);
+        }
 
-            case PlayerAbilityType.Freeze:
-                if (Input.GetKeyDown(KeyCode.K))
-                {
-                    ActivateAbility();
-                }
-                break;
+        if (HasAbility(PlayerAbilityType.Freeze)
+            && Input.GetKeyDown(KeyCode.K))
+        {
+            ActivateAbility(PlayerAbilityType.Freeze);
+        }
 
-            case PlayerAbilityType.BarrierOneHit:
-                if (Input.GetKeyDown(KeyCode.L))
-                {
-                    ActivateAbility();
-                }
-                break;
+        if (HasAbility(PlayerAbilityType.BarrierOneHit)
+            && Input.GetKeyDown(KeyCode.L))
+        {
+            ActivateAbility(PlayerAbilityType.BarrierOneHit);
+        }
 
-            case PlayerAbilityType.Dash:
-                if (Input.GetKeyDown(KeyCode.N))
-                {
-                    ActivateAbility();
-                }
-                break;
+        if (HasAbility(PlayerAbilityType.Dash)
+            && Input.GetKeyDown(KeyCode.N))
+        {
+            ActivateAbility(PlayerAbilityType.Dash);
+        }
 
-            case PlayerAbilityType.HomingShot:
-                if (Input.GetKeyDown(KeyCode.M))
-                {
-                    ActivateAbility();
-                }
-                break;
+        if (HasAbility(PlayerAbilityType.HomingShot)
+            && Input.GetKeyDown(KeyCode.M))
+        {
+            ActivateAbility(PlayerAbilityType.HomingShot);
+        }
 
-            case PlayerAbilityType.FireShot:
-                if (Input.GetKeyDown(KeyCode.Comma))
-                {
-                    ActivateAbility();
-                }
-                break;
+        if (HasAbility(PlayerAbilityType.FireShot)
+            && Input.GetKeyDown(KeyCode.Comma))
+        {
+            ActivateAbility(PlayerAbilityType.FireShot);
         }
     }
 
     public void AcquireAbility(PlayerAbilityType abilityType)
     {
+        unlockedAbilities.Add(abilityType);
         currentAbility = abilityType;
         Debug.Log("能力取得：" + abilityType);
     }
 
-    private void ActivateAbility()
+    public bool HasAbility(PlayerAbilityType abilityType)
     {
-        switch (currentAbility)
+        return unlockedAbilities.Contains(abilityType);
+    }
+
+    private void ActivateAbility(PlayerAbilityType abilityType)
+    {
+        switch (abilityType)
         {
             case PlayerAbilityType.DoubleJump:
                 if (playerMove == null)

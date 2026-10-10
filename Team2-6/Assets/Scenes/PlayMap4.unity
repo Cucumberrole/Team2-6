@@ -14815,6 +14815,10 @@ PrefabInstance:
       propertyPath: maxHp
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2975255799792644405, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
+      propertyPath: barrierCooldown
+      value: 0.24
+      objectReference: {fileID: 0}
     - target: {fileID: 3559000109128042257, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
       propertyPath: m_Name
       value: Player

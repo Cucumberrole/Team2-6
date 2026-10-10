@@ -53,6 +53,7 @@ public class PlayerAbility : MonoBehaviour
     private PlayerSE playerSE;
 
     private Coroutine freezeEffectCoroutine;
+    private Vector3 freezeEffectBasePosition;
 
     private bool invincibleAbilityLocked;
     private bool freezeAbilityLocked;
@@ -69,6 +70,7 @@ public class PlayerAbility : MonoBehaviour
 
         if (freezeEffectObject != null)
         {
+            freezeEffectBasePosition = freezeEffectObject.transform.localPosition;
             freezeEffectObject.SetActive(false);
         }
     }
@@ -374,7 +376,7 @@ public class PlayerAbility : MonoBehaviour
 
     private void PlayFreezeEffect()
     {
-        if (freezeEffectObject == null)
+        if (freezeEffectObject == null || playerMove == null)
         {
             return;
         }
@@ -384,9 +386,15 @@ public class PlayerAbility : MonoBehaviour
             StopCoroutine(freezeEffectCoroutine);
         }
 
+        int direction = playerMove.FacingDirection;
+
+        Vector3 position = freezeEffectBasePosition;
+        position.x = Mathf.Abs(freezeEffectBasePosition.x) * direction;
+        freezeEffectObject.transform.localPosition = position;
+
         Vector3 rotation = freezeEffectObject.transform.localEulerAngles;
 
-        if (playerMove.FacingDirection > 0)
+        if (direction > 0)
         {
             rotation.y = 0f;
         }

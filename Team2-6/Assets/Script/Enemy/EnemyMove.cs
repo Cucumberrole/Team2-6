@@ -74,9 +74,14 @@ public class EnemyMove : MonoBehaviour
 
     private bool HasGroundAhead(float movement)
     {
+        if(groundCheck == null ||groundLayer.value == 0)
+        {
+            return false;
+        }
+
         ContactFilter2D filter = new ContactFilter2D();
         filter.SetLayerMask(groundLayer);
-        filter.useTriggers = false;
+        filter.useTriggers = true;
 
         Vector2 origin =
             (Vector2)groundCheck.position +
@@ -214,6 +219,7 @@ public class EnemyMove : MonoBehaviour
 
     public void Defeat()
     {
+        EnemyHP = 0;
         Die();
     }
 

@@ -2229,6 +2229,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af3cd48df6de9574a94144469d1aa52f, type: 3}
+--- !u!82 &1265561136 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 300283472805115357, guid: af3cd48df6de9574a94144469d1aa52f, type: 3}
+  m_PrefabInstance: {fileID: 1265561135}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1302583308
 GameObject:
   m_ObjectHideFlags: 0
@@ -2949,6 +2954,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal
       objectReference: {fileID: 0}
+    - target: {fileID: 4312033685694377887, guid: 21edb6df9f9f6db4cb7b55f0190a895d, type: 3}
+      propertyPath: stageBgmSource
+      value: 
+      objectReference: {fileID: 1265561136}
     - target: {fileID: 4312033685694377887, guid: 21edb6df9f9f6db4cb7b55f0190a895d, type: 3}
       propertyPath: backgroundController
       value: 

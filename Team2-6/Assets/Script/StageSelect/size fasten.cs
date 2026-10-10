@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class size : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Screen.SetResolution(1920,1080,true);
+        Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
     }
-
 }

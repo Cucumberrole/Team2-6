@@ -14756,7 +14756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6314831180131069788, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
       propertyPath: jumpPower
-      value: 5.1
+      value: 5.4
       objectReference: {fileID: 0}
     - target: {fileID: 6314831180131069788, guid: aa452535d67de564ba0cd7588935c3ba, type: 3}
       propertyPath: moveSpeed

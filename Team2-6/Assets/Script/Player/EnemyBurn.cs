@@ -89,6 +89,15 @@ public class EnemyBurn : MonoBehaviour
     {
         yield return new WaitForSeconds(Mathf.Max(0f, burnTime));
         // 子に置いた炎も、敵と一緒に消える。
-        Destroy(gameObject);
+        EnemyMove enemyMove = GetComponent<EnemyMove>();
+
+        if (enemyMove != null)
+        {
+            enemyMove.Defeat();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

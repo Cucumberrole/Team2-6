@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 8674199898938863104}
   - component: {fileID: 9197730669822627821}
   - component: {fileID: 3515444922503431595}
+  - component: {fileID: 2284980479874529044}
   - component: {fileID: 5864551299240088427}
   m_Layer: 0
   m_Name: Enemy Rockkey7
@@ -304,6 +305,23 @@ MonoBehaviour:
   scriptsToDisable:
   - {fileID: 0}
   enemyAnimator: {fileID: 0}
+--- !u!114 &2284980479874529044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4761676415261674373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df1ffbaafa1f8c469c05290a61b3a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyFreeze
+  scriptsToDisable:
+  - {fileID: 9197730669822627821}
+  frozenVisual: {fileID: 0}
+  enemySpriteRenderer: {fileID: 556247137742505858}
+  frozenColor: {r: 0.6, g: 0.85, b: 1, a: 1}
 --- !u!114 &5864551299240088427
 MonoBehaviour:
   m_ObjectHideFlags: 0
